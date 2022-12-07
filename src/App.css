@@ -1,0 +1,469 @@
+#MainPage{
+  display: grid;
+  grid-template-rows: 10% 10% 75%;
+  height: 100vh;
+  width: 95vw;
+  margin-left: 1%;
+  overflow-y: scroll;
+}
+@font-face {
+  font-family: PoppinsBold;
+  src: url("../public/Materials/Fuentes/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: PoppinsRegular;
+  src: url("../public/Materials/Fuentes/Poppins-Regular.ttf");
+}
+.Title{
+  display: grid;
+  grid-area: 1/1/3/2;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 60% 40%;
+  margin-top: 8%;
+}
+.Logo{
+  display: grid;
+  grid-area: 1/1/2/2;
+  margin-left: 10%;
+}
+.Name{
+  display: grid;
+  grid-area: 1/1/2/2;
+  justify-content: center;
+  font-size: 180%;
+  margin-left: 40%;
+  font-weight: bolder;
+  font-family: PoppinsBold;
+
+}
+.Pokeball{
+  display: grid;
+  grid-area: 1/1/2/2;
+  height: 18%;
+  width: auto;
+
+}
+.LoginButton{
+  display: grid;
+  grid-area: 1/2/2/3;
+  margin-top: -13%;
+  float: right;
+  justify-content: center;
+  margin-right: 15%;
+}
+.Login{
+  color: black;
+  font-size: 16px;
+  font-family: PoppinsBold;
+  width: 130%;
+  border-radius: 30%;
+  text-align: center;
+}
+.Arrow{
+  display: grid;
+  grid-area: 1/2/2/3;
+  height: 20%;
+  width: auto;
+  float: right;
+  margin-right: 10%;
+  margin-top: 8%;
+}
+.Hashtag{
+  display: grid;
+  grid-area: 1/2/2/3;
+  height: 20%;
+  width: auto;
+  float: right;
+  margin-top: 6%;
+}
+.searchDiv{
+  display: grid;
+  grid-area: 2/1/3/2;
+  align-items: center;
+  justify-items: center;
+}
+.search{
+  height: 50%;
+  width: 95%;
+  border-radius: 10px;
+}
+.search::placeholder{
+  text-align: center;
+}
+
+.PokemonGrid{
+  display: grid;
+  grid-area: pokemons;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-area: 3/1/4/2;
+}
+.PokemonsCards{
+  border: 3px solid;
+  border-radius: 15px;
+  background-color: white !important;
+  margin: 5%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 10% 70% 20%;
+}
+.PokemonsCards:hover{
+  cursor: pointer;
+}
+
+.PokemonId{
+  font-size: 85%;
+  margin-right: 25%;
+  display: grid;
+  grid-area: 1/2/2/3;
+  justify-content: center;
+  align-items: center;
+}
+
+.PokemonImg{
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-area: 1/1/3/3;
+  height: auto;
+  width: 140%;
+  margin-top: 20%;
+}
+.PokemonName{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  font-family: PoppinsRegular;
+  font-size: small;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: grid;
+  grid-area: 3/1/4/3;
+}
+.Character{
+  height: 100vh;
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 25% 65%;
+
+}
+
+.Background{
+  display: grid;
+  grid-area: 2/1/3/2;
+  background-image: url("../public/Materials/Pokeball.png");
+  background-repeat: no-repeat;
+  filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(100%) contrast(100%);
+  margin-left: 43%;
+  margin-top: -17%;
+  opacity: 25%;
+}
+
+.MainNav{
+  display: grid;
+  grid-area: 1/1/2/2;
+  grid-template-columns: 20% 60% 20%;
+  margin-top: 5%;
+  position: fixed;
+  width: 100vw;
+  height: 10vh;
+}
+
+.MainArrow{
+  display: grid;
+  grid-area: 1/1/2/2;
+  height: 2%;
+  width: auto;
+  justify-self: center;
+  margin-top: 15%;
+  margin-left: 30%;
+  filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(100%) contrast(100%);
+}
+.MainName{
+  display: grid;
+  grid-area: 1/2/2/3;
+  font-family: PoppinsBold;
+  font-size: xx-large;
+  color: white !important;
+}
+.MainNumber{
+  display: grid;
+  grid-area: 1/3/2/4;
+  font-family: PoppinsBold;
+  justify-self: center;
+  margin-top: 15%;
+  color: white !important;
+}
+.MainImg{
+  height: 400%;
+  display: grid;
+  grid-area: 1/2/2/3;
+  margin-left: 10%;
+  margin-top: -115%;
+}
+.imgFixed{
+  display: flex;
+  justify-content: center;
+  grid-area: 1/2/2/3;
+}
+.frameRight{
+  display: grid;
+  grid-area: 1/3/2/4;
+  justify-content: space-evenly;
+  margin-top: -30%;
+  filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(100%) contrast(100%);
+}
+.frameRightfix{
+  height: 30px;
+}
+.frameLeft{
+  display: grid;
+  grid-area: 1/1/2/2;
+  justify-content: space-evenly;
+  margin-top: -30%;
+  filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(100%) contrast(100%);
+}
+.frameLeftfix{
+  height: 30px;
+}
+.DetailsPokemon{
+  display: grid;
+  grid-area: 3/1/5/2;
+  grid-template-columns: 35% 30% 35% ;
+  grid-template-rows: 10% 7% 8% 15% 15% 45%;
+  background-color: white;
+  border-radius: 5%;
+  margin: 0.5%;
+  z-index: 1;
+  height: 63vh;
+}
+.Lables{
+  grid-area: 2/2/2/3;
+  height: 80%;
+  font-size: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.Type{
+  border-radius: 8px;
+  text-align: center;
+  width: 42px;
+  color: white !important;
+}
+.about {
+  grid-area: 3/2/4/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+}
+.weightDiv {
+  grid-area: 4/1/5/2;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  font-size: smaller;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.363);  
+}
+.weightContainer{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 6%;
+
+}
+.weight {
+  height: 20px;
+  margin-right: 8px;
+}
+.WeightLable{
+  font-size: 81%;
+  margin-bottom: -40%;
+  align-items: center;
+  justify-self: center;
+  padding: 10%;
+}
+.heightDiv {
+  grid-area: 4/2/5/3;
+  color: black;
+  font-size: smaller;
+  margin-left: 25%;
+  display: flex;
+  flex-direction: column;
+}
+.height {
+  height: 25px;
+  margin-right: 10%;
+}
+.HeightLable{
+  margin-left: 15%;
+  font-size: 81%;
+  margin-top: 5%;
+}
+.heightContainer{
+  margin-bottom: 8%;
+  margin-left: 10%;
+}
+.movesDiv {
+  grid-area: 4/3/5/4;
+  color: black;
+  border-left: 1px solid rgba(0, 0, 0, 0.363);
+  align-items: center;
+  margin-top: 5%;
+}
+.movesName {
+  text-align: center;
+  font-size: 75% ;
+  font-family: PoppinsRegular;
+}
+.MovesLable{
+  text-align: center;
+  font-size: 63% ;
+  margin-top: 12%;
+  font-family: PoppinsRegular;
+}
+.descriptionDiv {
+  grid-area: 5/1/6/4;
+  color: black;
+  font-size: 63%;
+  padding: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: PoppinsRegular;
+}
+.baseDiv {
+  grid-area: 6/2/7/3;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+}
+.Stats{
+  display: grid;
+  grid-area: 6/1/7/2;
+  margin-top: 20%;
+}
+.StatsName{
+  margin-left: 10%;
+  font-size: 12px;
+  height: 1px;
+}
+.StatsValue{
+  font-size: 12px;
+  color: black !important;
+  margin-left: 40%;
+  border-left: 1px solid rgba(0, 0, 0, 0.363);
+  padding-left: 5px;
+}
+.ProgressBar{
+  margin-right: -170%;
+  margin-left: 80%;
+}
+
+.grass{
+  background-color: #74cb48;
+  border: solid #74cb48;
+  color: #74cb48;
+}
+.grass-bar{
+  background: #74cb48;
+}
+.psychic{
+  background-color: #fb5584;
+  border: solid #fb5584;
+  color: #fb5584;
+}
+.psychic-bar{
+  background-color: #fb5584 !important;
+  width: 80%;
+}
+.water{
+  background-color: #6493eb;
+  border: solid #6493eb;
+  color: #6493eb;
+}
+.steel{
+  background-color: #b7b9d0;
+  border: solid #b7b9d0;
+  color: #b7b9d0;
+}
+.ghost{
+  background-color: #70559b;
+  border: solid #70559b;
+  color: #70559b;
+}
+.rock{
+  background-color: #b69e31;
+  border: solid #b69e31;
+  color: #b69e31;
+}
+.normal{
+  background-color: #aaa67f;
+  border: solid #aaa67f;
+  color: #aaa67f;
+}
+.fighting{
+  background-color: #c12239;
+  border: solid #c12239;
+  color: #c12239;
+}
+.flying{
+  background-color: #a891ec;
+  border: solid #a891ec;
+  color: #a891ec;
+}
+.poison{
+  background-color: #a43e9e;
+  border: solid #a43e9e;
+  color: #a43e9e;
+}
+.ground{
+  background-color: #dec16b;
+  border: solid #dec16b;
+  color: #dec16b;
+}
+.bug{
+  background-color: #a78723;
+  border: solid #a78723;
+  color: #a78723;
+}
+.fire{
+  background-color: #f57d31;
+  border: solid #f57d31;
+  color: #f57d31;
+}
+.electric{
+  background-color: #f9cf30;
+  border: solid #f9cf30;
+  color: #f9cf30;
+}
+.dragon{
+  background-color: #7037ff;
+  border: solid #7037ff;
+  color: #7037ff;
+}
+.fairy{
+  background-color: #e69eac;
+  border: solid #e69eac;
+  color: #e69eac;
+}
+.dark{
+  background-color: #75574c;
+  border: solid #75574c;
+  color: #75574c;
+}
+.ice{
+  background-color: #9ad6df;
+  border: solid #9ad6df;
+  color: #9ad6df;
+}
+.type{
+  background-color: #242829;
+  border: solid #242829;
+  color: #242829;
+}
