@@ -1,8 +1,11 @@
 'use strict';
+
+const { sequelize } = require('../models');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-   up(queryInterface, Sequelize) {
-    return queryInterface.createTable('Pokedex', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Pokedexes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,28 +15,28 @@ module.exports = {
       idPokemon: {
         type: Sequelize.INTEGER
       },
-      Name: {
+      name: {
         type: Sequelize.STRING
       },
-      Type: {
+      type: {
         type: Sequelize.ARRAY(Sequelize.STRING)
       },
-      Weight: {
+      weight: {
         type: Sequelize.DECIMAL
       },
-      Height: {
+      height: {
         type: Sequelize.DECIMAL
       },
-      Moves: {
+      moves: {
         type: Sequelize.ARRAY(Sequelize.STRING)
       },
-      Description: {
+      description: {
         type: Sequelize.STRING
       },
-      Stats: {
+      stats: {
         type: Sequelize.ARRAY(Sequelize.INTEGER)
       },
-      Image: {
+      image: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -46,7 +49,7 @@ module.exports = {
       }
     });
   },
-   down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Pokedex');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Pokedexes');
   }
 };
