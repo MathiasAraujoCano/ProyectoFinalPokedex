@@ -21,7 +21,7 @@ module.exports = {
   },
 
     down: (queryInterface, Sequelize) => {
-     return queryInterface.bulkDelete('Pokedexes', null, {});
+     return queryInterface.bulkDelete('Pokedex', null, {});
      
   }
 };
