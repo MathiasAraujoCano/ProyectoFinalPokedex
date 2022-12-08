@@ -1,10 +1,14 @@
+body{
+  overflow-y: scroll;
+    margin-left: 2.5%;
+}
 #MainPage{
   display: grid;
   grid-template-rows: 10% 10% 75%;
   height: 100vh;
   width: 95vw;
-  margin-left: 1%;
-  overflow-y: scroll;
+
+
 }
 @font-face {
   font-family: PoppinsBold;
@@ -13,6 +17,36 @@
 @font-face {
   font-family: PoppinsRegular;
   src: url("../public/Materials/Fuentes/Poppins-Regular.ttf");
+}
+.Login{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  height: 100vh;
+  width: 103%;
+  margin-left: -3%;
+}
+.LogoLogin{
+  grid-area: 1/1/2/2;
+  width: 95%;
+  margin-top: 10%;
+}
+.MainLogin{
+  grid-area: 2/1/3/2;
+  background-color: rgb(243, 72, 72)!important;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  height: 60%;
+  width: 90%;
+  margin-left: 5%;
+}
+.Inputs{
+  margin-top: 20%;
+}
+.InputLogin{
+  height: 15%;
+  border-radius: 5%;
 }
 .Title{
   display: grid;
@@ -45,24 +79,24 @@
 }
 .LoginButton{
   display: grid;
-  grid-area: 1/2/2/3;
-  margin-top: -13%;
+  grid-area: 1/1/2/2;
+  margin-top: -10%;
   float: right;
   justify-content: center;
-  margin-right: 15%;
+  height: 20%;
+  margin-right: -252%;
 }
 .Login{
   color: black;
   font-size: 16px;
   font-family: PoppinsBold;
-  width: 130%;
   border-radius: 30%;
   text-align: center;
 }
 .Arrow{
   display: grid;
   grid-area: 1/2/2/3;
-  height: 20%;
+  height: 22%;
   width: auto;
   float: right;
   margin-right: 10%;
@@ -75,7 +109,7 @@
   width: auto;
   float: right;
   margin-top: 6%;
-}
+} 
 .searchDiv{
   display: grid;
   grid-area: 2/1/3/2;

@@ -32,14 +32,9 @@ const ListOfPokemon = (props) => {
                     <img className="Pokeball" src="Materials/Pokeball.png" alt=""/>
                     <span className="Name">Pokédex</span>
                 </div>
-                <div>
-                <Link to={`/Login`} style={{ textDecoration: 'none' }}>
-                    <div className="LoginButton">
+                <Link to={`/Login`} style={{ textDecoration: 'none' }} className="LoginButton">
                         <div className="Login">Login</div>
-                    </div>
-                </Link>
-
-                </div>
+                </Link> 
                 <div className="ButtonOrg" id="SortNumber" onClick={()=>SortBy()}>
                     <img className="Arrow" src="Materials\Arrow.png"  alt="" />
                     <span className="Hashtag" onClick={handleFilter}>{filterType}</span>

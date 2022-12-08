@@ -77,7 +77,7 @@ useEffect(()=>{
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/"
+          <Route path="/Home"
           element={
             <ListOfPokemon
             getPokemon={getPokemon}/>
@@ -87,7 +87,7 @@ useEffect(()=>{
             <CharactersPokemon
             list={getPokemon}/>
           }/>
-           <Route path="/Login"
+           <Route path="/"
           element={
             <Login/>
           }/>
