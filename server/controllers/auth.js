@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/', verifyToken, async (req, res, next) => {
     try {
-        res.send('Bienvenido a la Pokedex ' + req.body.email)
+        res.send('Bienvenido a la Pokedex')
     } catch (err) {
         console.log('error de auth')
         next(err)
