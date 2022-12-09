@@ -43,9 +43,19 @@ router.post('/pkmn',(req,res)=>{  //done post pokemon
         stats: req.body.stats,
         image: req.body.image
     }
-    Pokemon.create(poke)
+    Pokemon.findOne({
+        where:{
+            idPokemon: poke.idPokemon
+        }
+    })
     .then((data) => {
-        res.send(data)
+        if(data) {
+            res.status(401).send({ message: "El Pokemon ya existe" })
+        }
+        else {
+            Pokemon.create(poke)
+            res.send({ message: "Pokemon agregado con éxito", poke })
+        }
     })
     .catch(err => {
         res.status(500).send({ message: 'Ocurrió un error al agregar su Pokemon' })
