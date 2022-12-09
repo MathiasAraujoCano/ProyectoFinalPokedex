@@ -131,24 +131,6 @@ const NewPokemon = (props) => {
             </Form>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     )
 }
 

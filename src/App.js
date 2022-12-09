@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import ListOfPokemon from './Components/Home Page/ListOfPokemon/ListOfPokemos'
 import CharactersPokemon from './Components/Detailed View/CharactersPokemon/CharactersPokemon';
 import Login from './Components/Login/Login';
-import {BrowserRouter, Routes, Route, } from 'react-router-dom'
-import NewPokemon from '../../ProyectoFinal/src/Components/Login/NewPokemon';
+import {BrowserRouter, Routes, Route, } from 'react-router-dom';
+import NewPokemon from './Components/Login/NewPokemon';
 
 function App() {
 
