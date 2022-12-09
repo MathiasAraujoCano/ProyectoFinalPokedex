@@ -49,6 +49,9 @@ const ListOfPokemon = (props) => {
                 onChange={(e)=>setSearchText(e.target.value)}/>
             </div>
                 <div className="PokemonGrid">
+                <Link to={`/NewPokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
+                    <div>new</div>
+                </Link>
                 {filteredPokemon.map((pokemon, key)=>
                                                 <SimplePokemon 
                                                 pokemon={pokemon}

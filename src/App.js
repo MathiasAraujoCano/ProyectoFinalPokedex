@@ -4,6 +4,7 @@ import ListOfPokemon from './Components/Home Page/ListOfPokemon/ListOfPokemos'
 import CharactersPokemon from './Components/Detailed View/CharactersPokemon/CharactersPokemon';
 import Login from './Components/Login/Login';
 import {BrowserRouter, Routes, Route, } from 'react-router-dom'
+import NewPokemon from '../../ProyectoFinal/src/Components/Login/NewPokemon';
 
 function App() {
 
@@ -90,6 +91,10 @@ useEffect(()=>{
            <Route path="/"
           element={
             <Login/>
+          }/>
+          <Route path="/NewPokemon"
+          element={
+            <NewPokemon/>
           }/>
         </Routes>
       </BrowserRouter>
