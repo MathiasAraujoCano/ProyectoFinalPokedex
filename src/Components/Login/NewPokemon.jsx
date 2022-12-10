@@ -4,8 +4,61 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
+import { useState } from "react";
 
 const NewPokemon = (props) => {
+
+    const [name, setName] = useState()
+    const [type, setType] = useState([])
+    const [weight, setWeight] = useState()
+    const [height, setHeight] = useState()
+    const [moves, setMoves] = useState([])
+    const [description, setDescription] = useState()
+    const [stats, setStats] = useState([])
+    const [image, setImage] = useState()
+
+    const nameHandler = (e) => {
+        setName(e.target.value)
+        console.log(name)
+    }
+
+    const typeHandler = (e) => {
+        let t = e.target.value
+        setType(type => [...type, t])
+        console.log(type)
+    }
+
+    const weightHandler = (e) => {
+        setWeight(e.target.value)
+        console.log(weight)
+    }
+
+    const heightHandler = (e) => {
+        setHeight(e.target.value)
+        console.log(height)
+    }
+
+    const movesHandler = (e) => {
+        let m = e.target.value
+        setMoves(moves => [...moves, m])
+        console.log(moves)
+    }
+
+    const descriptionHandler = (e) => {
+        setDescription(e.target.value)
+        console.log(description)
+    }
+
+    const statsHandler = (e) => {
+        let s = e.target.value
+        setStats(stats => [...stats, s])
+        console.log(stats)
+    }
+
+    const imageHandler = (e) => {
+        setImage(e.target.value)
+        console.log(image)
+    }
 
     return(
         <div className={Classes.MainContainer}>
@@ -21,8 +74,8 @@ const NewPokemon = (props) => {
                         <div className={Classes.TopContainer}>
                             <div className={Classes.Name}>
                                 <p className={Classes.Nombre}>Nombre</p>
-                                <InputGroup className="mb-3">
-                                    <InputGroup.Text id="inputGroup-sizing-default">
+                                <InputGroup className="mb-3" onChange={nameHandler}>
+                                    <InputGroup.Text id="inputGroup-sizing-default" >
                                     </InputGroup.Text>
                                     <Form.Control
                                     aria-label="Nombre"
@@ -34,38 +87,38 @@ const NewPokemon = (props) => {
                             <div className={Classes.Types}>
                             <p className={Classes.Tipos}>Tipos</p>
                                 <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select style={{ width: '90%' }}>
+                                    <Form.Select style={{ width: '90%' }} onChange={typeHandler}>
                                         <option>Tipo</option>
-                                        <option value="1">Fuego</option>
-                                        <option value="2">Electrico</option>
-                                        <option value="3">Planta</option>
+                                        <option value="Fuego">Fuego</option>
+                                        <option value="Electrico">Electrico</option>
+                                        <option value="Planta">Planta</option>
                                     </Form.Select>
                                 </FloatingLabel>
                                 <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select style={{ width: '90%' }}>
+                                    <Form.Select style={{ width: '90%' }} onChange={typeHandler}>
                                         <option>Tipo</option>
-                                        <option value="1">Fuego</option>
-                                        <option value="2">Electrico</option>
-                                        <option value="3">Planta</option>
+                                        <option value="Fuego">Fuego</option>
+                                        <option value="Electrico">Electrico</option>
+                                        <option value="Planta">Planta</option>
                                     </Form.Select>
                                 </FloatingLabel>
                             </div>
                             <div className={Classes.Image}>
                                 <p className={Classes.Imagen}>Imagen</p>
                                 <Form.Group controlId="formFile" className="mb-3">
-                                    <Form.Control type="file" style={{ width: '90%' }}/>
+                                    <Form.Control type="file" style={{ width: '90%' }} onChange={imageHandler}/>
                                 </Form.Group>
                             </div>
                             <div className={Classes.Weight}>
                                 <p className={Classes.Peso}>Peso</p>
-                                <InputGroup>
+                                <InputGroup onChange={weightHandler}>
                                     <Form.Control style={{ width: '80%' }}/>
                                     <InputGroup.Text>Kg</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Height}>
                                 <p className={Classes.Altura}>Altura</p>
-                                <InputGroup>
+                                <InputGroup onChange={heightHandler}>
                                     <Form.Control style={{ width: '75%' }}/>
                                     <InputGroup.Text>Mts</InputGroup.Text>
                                 </InputGroup>
@@ -73,53 +126,53 @@ const NewPokemon = (props) => {
                             <div className={Classes.Moves}>
                                 <p className={Classes.Movimientos}>Movimientos</p>
                                 <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select style={{ width: '90%' }}>
+                                    <Form.Select style={{ width: '90%' }} onChange={movesHandler}>
                                         <option>Tipo</option>
-                                        <option value="1">Megapunch</option>
-                                        <option value="2">Impact trueno</option>
+                                        <option value="Megapunch">Megapunch</option>
+                                        <option value="Impact trueno">Impact trueno</option>
                                     </Form.Select>
                                 </FloatingLabel>
                             </div>
                             <div className={Classes.Description}>
                                 <p className={Classes.Descripcion}>Descripción</p>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3} style={{ width: '90%' }}/>
+                                    <Form.Control as="textarea" rows={3} style={{ width: '90%' }} onChange={descriptionHandler}/>
                                 </Form.Group>
                             </div>
                         </div>
                         <div className={Classes.StatsContainer}>
                             <div className={Classes.Hp}>
-                                <InputGroup>
+                                <InputGroup onChange={statsHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Hp</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Atk}>
-                                <InputGroup>
+                                <InputGroup onChange={statsHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Atk</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Def}>
-                                <InputGroup>
+                                <InputGroup onChange={statsHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Def</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spa}>
-                                <InputGroup>
+                                <InputGroup onChange={statsHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Spa</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spd}>
-                                <InputGroup>
+                                <InputGroup onChange={statsHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Spd</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Speed}>
-                                <InputGroup>
+                                <InputGroup onChange={statsHandler}>
                                     <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Speed</InputGroup.Text>
                                 </InputGroup>

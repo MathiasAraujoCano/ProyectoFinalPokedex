@@ -10,6 +10,9 @@ function App() {
 
   const [getPokemon, setGetPokemon] = useState ([])
   const [availablePkmn, setAvailablePkmn] = useState([])
+  const [userLogin, setUserLogin] = useState()
+  const [userIsValid, setUserIsValid] = useState(false)
+  const [newInsertPokemon, setNewInsertPokemon] = useState()
 
   const getPkmn = () =>{
     fetch('http://localhost:8001/pkmn')
@@ -23,8 +26,25 @@ function App() {
     })
 }
 
+
+const insertPokemon = (idPokemon, name, type, weight, height, moves, description, stats, image) => {
+  const requestPokemon = {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, stats, image})
+  }
+  fetch('http://localhost:8001/pkmn', requestPokemon)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    setNewInsertPokemon(data)
+  })
+  .catch((err) => {
+    console.log('Error en petición Fetch del new Pokemon')
+  })
+}
+
 useEffect(()=>{
-  console.log('hola')
   getPkmn()
 },[])
 
@@ -94,7 +114,7 @@ useEffect(()=>{
           }/>
           <Route path="/NewPokemon"
           element={
-            <NewPokemon/>
+            <NewPokemon insertPokemon={insertPokemon}/>
           }/>
         </Routes>
       </BrowserRouter>
