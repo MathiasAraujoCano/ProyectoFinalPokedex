@@ -60,6 +60,10 @@ const NewPokemon = (props) => {
         console.log(image)
     }
 
+    const submitHandler = () => {
+        console.log(type)
+    }
+
     return(
         <div className={Classes.MainContainer}>
             <Form>
@@ -67,7 +71,7 @@ const NewPokemon = (props) => {
                     <div className={Classes.Header}>Crea tu Nuevo Pokemon!</div>
                     <div className={Classes.LoginContainer}>
                         <div className={Classes.Button}>
-                            <Button variant="primary" type="submit" style={{ width: '60%' }}>
+                            <Button variant="primary" type="submit" style={{ width: '60%' }} onClick={submitHandler}>
                                 Crear!
                             </Button>
                         </div>
