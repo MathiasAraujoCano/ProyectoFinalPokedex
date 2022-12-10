@@ -70,11 +70,6 @@ const NewPokemon = (props) => {
                     <div className={Classes.Background}></div>
                     <div className={Classes.Header}>Crea tu Nuevo Pokemon!</div>
                     <div className={Classes.LoginContainer}>
-                        <div className={Classes.Button}>
-                            <Button variant="primary" type="submit" style={{ width: '60%' }} onClick={submitHandler}>
-                                Crear!
-                            </Button>
-                        </div>
                         <div className={Classes.TopContainer}>
                             <div className={Classes.Name}>
                                 <p className={Classes.Nombre}>Nombre</p>
@@ -182,7 +177,11 @@ const NewPokemon = (props) => {
                                 </InputGroup>
                             </div>
                         </div>
-
+                        <div className={Classes.Button}>
+                            <Button variant="primary" type="submit" style={{ width: '60%' }} onClick={submitHandler}>
+                                Crear!
+                            </Button>
+                        </div>
                     </div>
 
             </Form>
