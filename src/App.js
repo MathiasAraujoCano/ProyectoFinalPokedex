@@ -67,6 +67,30 @@ const insertPokemon = (idPokemon, name, type, weight, height, moves, description
   })
 }
 
+
+const getUser = (email, password) => {
+  const requestOption = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email, password })
+  }
+  fetch('http://localhost:8001/auth/login', requestOption)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    setUserLogin(data)
+    if (data.token) {
+      setUserIsValid(true)
+    } else {
+      setUserIsValid(false)
+    }
+  })
+  .catch((err => {
+    console.log('Hubo un error con la petición del logeo' + err.message)
+  }))
+}
+
+
 useEffect(()=>{
   getPkmn()
 },[])
@@ -133,7 +157,7 @@ useEffect(()=>{
           }/>
            <Route path="/"
           element={
-            <Login/>
+            <Login login={getUser}/>
           }/>
           <Route path="/NewPokemon"
           element={

@@ -19,8 +19,8 @@ const Login = (props) => {
 
     const submitHandler = (event => {
         event.preventDefault()
-        console.log(email)
-        console.log(password)
+
+        props.login(email, password)
         setEmail('')
         setPassword('')
     })
