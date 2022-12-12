@@ -1,15 +1,15 @@
-.Login{
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 30% 70%;
-  height: 100vh;
-  width: 103%;
-  margin-left: -3%;
-}
 .LogoLogin{
   grid-area: 1/1/2/2;
   width: 95%;
   margin-top: 10%;
+}
+
+.p {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: larger;
+  font-family: 'PoppinsBold';
 }
 
 .FormLogin{
@@ -22,6 +22,7 @@
   border-color: black;
   border-style: solid;
   border-width: 2px;
+  border-radius: 5px;
   /*
   background-color: rgb(243, 72, 72)!important;
   border-color: black;

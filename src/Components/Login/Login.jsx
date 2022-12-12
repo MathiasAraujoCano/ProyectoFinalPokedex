@@ -29,8 +29,8 @@ const Login = (props) => {
            
            <Form >
                 <img className={Classes.LogoLogin} src="Materials\LogoLogin.png" alt="" />            
-                    
                     <div className={Classes.FormLogin}>
+                        <p className={Classes.p}>Ingresa tus datos </p>
                     <Form.Group className={Classes.formEmail} controlId="formEmail">
                         <Form.Label className={Classes.Email}>Email</Form.Label>
                         <Form.Control 
