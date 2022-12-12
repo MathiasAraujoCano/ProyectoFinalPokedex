@@ -5,6 +5,7 @@ import CharactersPokemon from './Components/Detailed View/CharactersPokemon/Char
 import Login from './Components/Login/Login';
 import {BrowserRouter, Routes, Route, } from 'react-router-dom';
 import NewPokemon from './Components/Login/NewPokemon';
+import Register from './Components/Register/Register';
 
 function App() {
 
@@ -137,6 +138,10 @@ useEffect(()=>{
           <Route path="/NewPokemon"
           element={
             <NewPokemon insertPokemon={insertPokemon}/>
+          }/>
+          <Route path="/Register"
+          element={
+            <Register/>
           }/>
         </Routes>
       </BrowserRouter>

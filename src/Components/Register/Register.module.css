@@ -1,0 +1,67 @@
+.Login{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 70%;
+    height: 100vh;
+    width: 103%;
+    margin-left: -3%;
+  }
+  .LogoLogin{
+    grid-area: 1/1/2/2;
+    width: 95%;
+    margin-top: 10%;
+  }
+  
+  .FormLogin{
+    grid-area: 2/1/3/2;
+    background-image: url("/public/Materials/LoginFondo.jpeg");
+    width: 95%;
+    height: 350px;
+    padding: 2px;
+    margin-top: 20px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+  }
+    .Email{
+    margin-right:50px;
+    margin-top: 20px;
+    font-family: 'PoppinsBold';
+  }
+  
+  .formPassword{
+    margin-right:20px;
+    text-align: center;
+  }
+  
+  .Contraseña{
+    margin-right: 20px;
+    font-family: 'PoppinsBold';
+  }
+  
+  .formEmail{
+    text-align: center;
+  }
+    .formName{
+        text-align: center;
+        margin-top: 111px;
+  }
+  
+  .Name{
+    margin-right: 30px;
+    margin-top: 20px;
+    font-family: 'PoppinsBold';
+  }
+  
+  .Registrarse{
+    margin-top: 25px;
+    margin-left: 40%;
+    font-family: 'PoppinsBold';
+  }
+  .Register{
+    margin-top:60px;
+    margin-left: 40%;
+    font-family: 'PoppinsRegular';
+  }
+  
+  
