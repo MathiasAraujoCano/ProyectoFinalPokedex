@@ -38,7 +38,7 @@ const CharactersPokemon = (props) => {
                     </div>
                     <div className="DetailsPokemon">
                         <div className="imgFixed">
-                            <img className="MainImg" src={pokemon.img} alt=""/>
+                            <img className="MainImg" src={pokemon.image} alt=""/>
                         </div>
                         {
                             previousPokemon && <Link to={`/${previousPokemon.id}`} className="frameLeft" ><img className="frameLeftfix" src="Materials\Frame.png" alt=""/></Link> 

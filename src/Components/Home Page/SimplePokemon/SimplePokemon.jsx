@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SimplePokemon = (props) => {
+    console.log(props.pokemon)
 
     return(
 
@@ -11,7 +12,7 @@ const SimplePokemon = (props) => {
                     #{String(props.pokemon.id).padStart(3, '0')}
                 </div>
                 <div>
-                    <img className="PokemonImg" src={props.pokemon.img} alt="" />
+                    <img className="PokemonImg" src={props.pokemon.image} alt="" />
                 </div>
                 <div className={`PokemonName ${props.pokemon.type[0].toLowerCase()}`}>
                     {props.pokemon.name}

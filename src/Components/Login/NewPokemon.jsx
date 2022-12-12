@@ -24,7 +24,7 @@ const NewPokemon = (props) => {
 
     const typeHandler = (e) => {
         let t = e.target.value
-        setType(type => [...type, t])
+        setType(type.push(t))
         console.log(type)
     }
 
@@ -51,7 +51,7 @@ const NewPokemon = (props) => {
 
     const statsHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, s])
+        setStats(stats.push(s))
         console.log(stats)
     }
 
@@ -60,8 +60,8 @@ const NewPokemon = (props) => {
         console.log(image)
     }
 
-    const submitHandler = () => {
-        console.log(type)
+    const submitHandler = (e) => {
+        e.preventDefault()
     }
 
     return(

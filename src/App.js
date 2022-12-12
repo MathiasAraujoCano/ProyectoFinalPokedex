@@ -15,11 +15,33 @@ function App() {
   const [newInsertPokemon, setNewInsertPokemon] = useState()
 
   const getPkmn = () =>{
+    let auxB = []
     fetch('http://localhost:8001/pkmn')
     .then(response => response.json())
     .then(data => {
+      data.forEach(pkm=>{
+        auxB.push({            
+          "id" : pkm.id,
+          "name": pkm.name,
+          "image": pkm.image,
+          "type": pkm.type,
+          "weight": pkm.weight,
+          "height": pkm.height,
+          "moves": pkm.moves,
+          "stats": [
+            {"key":"HP","value": pkm.stats[0]},
+            {"key":"Atk","value": pkm.stats[1]},
+            {"key":"Def","value": pkm.stats[2]},
+            {"key":"Spa","value": pkm.stats[3]},
+            {"key":"Spd","value": pkm.stats[4]},
+            {"key":"Speed","value": pkm.stats[5]}
+          ]
+  
+        })
+      })
+      
       console.log(data)
-      setAvailablePkmn(data)
+      setAvailablePkmn(auxB)
     })
     .catch((err)=> {
       console.log('Hubo un problema con la petición Fetch:' + err.message);
@@ -101,12 +123,12 @@ useEffect(()=>{
           <Route path="/Home"
           element={
             <ListOfPokemon
-            getPokemon={getPokemon}/>
+            getPokemon={availablePkmn}/>
           }/>
           <Route path="/:id"
           element={
             <CharactersPokemon
-            list={getPokemon}/>
+            list={availablePkmn}/>
           }/>
            <Route path="/"
           element={
