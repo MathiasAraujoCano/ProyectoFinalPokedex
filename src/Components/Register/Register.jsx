@@ -8,8 +8,8 @@ const Register = (props) => {
         return(
            
            <Form >
-                <img className={Classes.LogoLogin} src="Materials\LogoLogin.png" alt="" />                     
-                    <div className={Classes.FormLogin}>
+                <img className={Classes.LogoRegister} src="Materials\LogoLogin.png" alt="" />                     
+                    <div className={Classes.FormRegister}>
                     <Form.Group className={Classes.formName} controlId="formEmail">
                         <Form.Label className={Classes.Name}>Nombre</Form.Label>
                         <Form.Control type="text" placeholder="Ingresa tu nombre" />
