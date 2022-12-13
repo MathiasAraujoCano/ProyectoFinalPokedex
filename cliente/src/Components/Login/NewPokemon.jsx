@@ -51,8 +51,7 @@ const NewPokemon = (props) => {
 
     const statsHandler = (e) => {
         let s = e.target.value
-        setStats(stats.push(s))
-        console.log(stats)
+        setStats(stats => [...stats, s])
     }
 
     const imageHandler = (e) => {
@@ -62,6 +61,7 @@ const NewPokemon = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
+        console.log(stats)
     }
 
     return(
