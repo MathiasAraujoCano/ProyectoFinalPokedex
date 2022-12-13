@@ -23,7 +23,7 @@ function App() {
     .then(data => {
       data.forEach(pkm=>{
         auxB.push({            
-          "id" : pkm.id,
+          "id" : pkm.idPokemon,
           "name": pkm.name,
           "image": pkm.image,
           "type": pkm.type,
