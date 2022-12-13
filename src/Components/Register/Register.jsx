@@ -25,6 +25,7 @@ const Register = (props) => {
     const submitHandler = (event) => {
         event.preventDefault()
 
+        props.register(name, email, password)
         setName('')
         setEmail('')
         setPassword('')

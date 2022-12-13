@@ -14,6 +14,7 @@ function App() {
   const [userLogin, setUserLogin] = useState()
   const [userIsValid, setUserIsValid] = useState(false)
   const [newInsertPokemon, setNewInsertPokemon] = useState()
+  const [userRegister, setUserRegister] = useState()
 
   const getPkmn = () =>{
     let auxB = []
@@ -91,6 +92,24 @@ const getUser = (email, password) => {
 }
 
 
+const newUser = (name, email, password) => {
+    const requestOption = {
+      method: 'POST',
+      headers: {'Content-Type' : 'application/json' },
+      body: JSON.stringify({ name, email, password })
+    }
+    fetch('http://localhost:8001/auth/register', requestOption)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      setUserRegister(data)
+    })
+    .catch((err => {
+      console.log('Hubo un error con el register', err.message)
+    }))
+}
+
+
 useEffect(()=>{
   getPkmn()
 },[])
@@ -165,7 +184,7 @@ useEffect(()=>{
           }/>
           <Route path="/Register"
           element={
-            <Register/>
+            <Register register={newUser}/>
           }/>
         </Routes>
       </BrowserRouter>
