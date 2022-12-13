@@ -14,7 +14,7 @@ const NewPokemon = (props) => {
     const [height, setHeight] = useState()
     const [moves, setMoves] = useState([])
     const [description, setDescription] = useState()
-    const [stats, setStats] = useState([])
+    const [stats, setStats] = useState([{HP: '', Atk: '', Def: '', Spa: '', Spd: '', Speed: ''}])
     const [image, setImage] = useState()
 
     const nameHandler = (e) => {
@@ -49,9 +49,34 @@ const NewPokemon = (props) => {
         console.log(description)
     }
 
-    const statsHandler = (e) => {
+    const statsHPHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, s])
+        setStats(stats => [...stats, {HP: s}])
+    }
+
+    const statsAtkHandler = (e) => {
+        let s = e.target.value
+        setStats(stats => [...stats, {Atk: s}])
+    }
+
+    const statsDefHandler = (e) => {
+        let s = e.target.value
+        setStats(stats => [...stats, {Def: s}])
+    }
+
+    const statsSpaHandler = (e) => {
+        let s = e.target.value
+        setStats(stats => [...stats, {Spa: s}])
+    }
+
+    const statsSpdHandler = (e) => {
+        let s = e.target.value
+        setStats(stats => [...stats, {Spd: s}])
+    }
+
+    const statsSpeedHandler = (e) => {
+        let s = e.target.value
+        setStats(stats => [...stats, {Speed: s}])
     }
 
     const imageHandler = (e) => {
@@ -141,37 +166,37 @@ const NewPokemon = (props) => {
                         </div>
                         <div className={Classes.StatsContainer}>
                             <div className={Classes.Hp}>
-                                <InputGroup onChange={statsHandler}>
+                                <InputGroup onBlur={statsHPHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Hp</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Atk}>
-                                <InputGroup onChange={statsHandler}>
+                                <InputGroup onBlur={statsAtkHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Atk</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Def}>
-                                <InputGroup onChange={statsHandler}>
+                                <InputGroup onBlur={statsDefHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Def</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spa}>
-                                <InputGroup onChange={statsHandler}>
+                                <InputGroup onBlur={statsSpaHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Spa</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spd}>
-                                <InputGroup onChange={statsHandler}>
+                                <InputGroup onBlur={statsSpdHandler}>
                                 <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Spd</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Speed}>
-                                <InputGroup onChange={statsHandler}>
+                                <InputGroup onBlur={statsSpeedHandler}>
                                     <Form.Control style={{ width: '60%' }}/>
                                     <InputGroup.Text>Speed</InputGroup.Text>
                                 </InputGroup>
