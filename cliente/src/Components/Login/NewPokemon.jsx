@@ -19,7 +19,7 @@ const NewPokemon = (props) => {
     const [idPokemon, setIdPokemon] = useState()
     
     const idPoke = () => {
-        let id = Math.floor(Math.random()*(3000 - 1000) + 1500)
+        let id = Math.floor(Math.random()*(3000 - 1000)) + 1500
         setIdPokemon(id)
     }
 
@@ -86,7 +86,7 @@ const NewPokemon = (props) => {
     const submitHandler = (e) => {
         e.preventDefault()
         idPoke()
-
+        console.log(idPokemon)
         props.insertPokemon(idPokemon, name, type, weight, height, moves, description, stats, image)
     }
 
