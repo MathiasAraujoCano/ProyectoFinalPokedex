@@ -33,7 +33,7 @@ router.get('/pkmn/:id',(req,res) => { //done get pokemon by id
 router.post('/pkmn',(req,res)=>{  //done post pokemon
     const Pokemon = db.Pokedex
     let poke = {
-        idPokemon: req.body.idPokemon,
+        idPokemon: Math.floor(Math.random()*(3000 - 1000)),
         name: req.body.name,
         type: req.body.type,
         weight: req.body.weight,

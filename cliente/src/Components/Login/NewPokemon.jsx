@@ -14,79 +14,80 @@ const NewPokemon = (props) => {
     const [height, setHeight] = useState()
     const [moves, setMoves] = useState([])
     const [description, setDescription] = useState()
-    const [stats, setStats] = useState([{HP: '', Atk: '', Def: '', Spa: '', Spd: '', Speed: ''}])
+    const [stats, setStats] = useState([])
     const [image, setImage] = useState()
+    const [idPokemon, setIdPokemon] = useState()
+    
+    const idPoke = () => {
+        let id = Math.floor(Math.random()*(3000 - 1000) + 1500)
+        setIdPokemon(id)
+    }
 
     const nameHandler = (e) => {
         setName(e.target.value)
-        console.log(name)
     }
 
     const typeHandler = (e) => {
         let t = e.target.value
-        setType(type.push(t))
-        console.log(type)
+        setType(type => [...type, t])
     }
 
     const weightHandler = (e) => {
         setWeight(e.target.value)
-        console.log(weight)
     }
 
     const heightHandler = (e) => {
         setHeight(e.target.value)
-        console.log(height)
     }
 
     const movesHandler = (e) => {
         let m = e.target.value
         setMoves(moves => [...moves, m])
-        console.log(moves)
     }
 
     const descriptionHandler = (e) => {
         setDescription(e.target.value)
-        console.log(description)
     }
 
     const statsHPHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, {HP: s}])
+        setStats(stats => [...stats, stats[0]=s])
     }
 
     const statsAtkHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, {Atk: s}])
+        setStats(stats => [...stats, stats[1]=s])
     }
 
     const statsDefHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, {Def: s}])
+        setStats(stats => [...stats, stats[2]=s])
     }
 
     const statsSpaHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, {Spa: s}])
+        setStats(stats => [...stats, stats[3]=s])
     }
 
     const statsSpdHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, {Spd: s}])
+        setStats(stats => [...stats, stats[4]=s])
     }
 
     const statsSpeedHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, {Speed: s}])
+        setStats(stats => [...stats, stats[5]=s])
     }
 
     const imageHandler = (e) => {
         setImage(e.target.value)
-        console.log(image)
     }
 
     const submitHandler = (e) => {
         e.preventDefault()
-        console.log(stats)
+        idPoke()
+
+        props.insertPokemon(idPokemon, name, type, weight, height, moves, description, stats, image)
     }
 
     return(
@@ -113,7 +114,7 @@ const NewPokemon = (props) => {
                                 <FloatingLabel controlId="floatingSelect">
                                     <Form.Select style={{ width: '90%' }} onChange={typeHandler}>
                                         <option>Tipo</option>
-                                        <option value="Fuego">Fuego</option>
+                                        <option value="Fire">Fuego</option>
                                         <option value="Electrico">Electrico</option>
                                         <option value="Planta">Planta</option>
                                     </Form.Select>
@@ -130,7 +131,7 @@ const NewPokemon = (props) => {
                             <div className={Classes.Image}>
                                 <p className={Classes.Imagen}>Imagen</p>
                                 <Form.Group controlId="formFile" className="mb-3">
-                                    <Form.Control type="file" style={{ width: '90%' }} onChange={imageHandler}/>
+                                    <Form.Control type="text" style={{ width: '90%' }} onChange={imageHandler}/>
                                 </Form.Group>
                             </div>
                             <div className={Classes.Weight}>
