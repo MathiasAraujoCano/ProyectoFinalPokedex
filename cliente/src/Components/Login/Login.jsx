@@ -3,6 +3,7 @@ import Classes from "../Login/Login.module.css"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
 
@@ -55,10 +56,12 @@ const Login = (props) => {
                         Iniciar Sesión
                     </Button>
                     <br>
-                    </br>
-                    <Button className={Classes.Registrarse} type="submit">
-                        Registrarse!
-                    </Button>
+                    </br>               
+                    <Link to={`/Register`} style={{ textDecoration: 'none' }}>              
+                        <Button className={Classes.Registrarse} type="submit">
+                            Registrarse!
+                        </Button>
+                    </Link>
                     </div>
           </Form>
     )
