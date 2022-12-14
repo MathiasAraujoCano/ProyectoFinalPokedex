@@ -29,6 +29,7 @@ function App() {
           "type": pkm.type,
           "weight": pkm.weight,
           "height": pkm.height,
+          "description": pkm.description,
           "moves": pkm.moves,
           "stats": [
             {"key":"HP","value": pkm.stats[0]},
