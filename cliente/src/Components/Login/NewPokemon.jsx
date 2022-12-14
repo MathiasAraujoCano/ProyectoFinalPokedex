@@ -5,6 +5,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
+import { useEffect } from "react";
 
 const NewPokemon = (props) => {
 
@@ -19,7 +20,7 @@ const NewPokemon = (props) => {
     const [idPokemon, setIdPokemon] = useState()
     
     const idPoke = () => {
-        let id = Math.floor(Math.random()*(3000 - 1000)) + 1500
+        let id = Math.floor(Math.random()*(2000)) + 1500
         setIdPokemon(id)
     }
 
@@ -51,33 +52,51 @@ const NewPokemon = (props) => {
 
     const statsHPHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[0]=s])
+        let arr = stats
+        arr[0]=s
+        setStats(arr)
     }
 
     const statsAtkHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[1]=s])
+        let arr = stats
+        arr[1]=s
+        setStats(arr)
     }
 
     const statsDefHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[2]=s])
+        let arr = stats
+        arr[2]=s
+        setStats(arr)
     }
 
     const statsSpaHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[3]=s])
+        let arr = stats
+        arr[3]=s
+        setStats(arr)
     }
 
     const statsSpdHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[4]=s])
+        let arr = stats
+        arr[4]=s
+        setStats(arr)
     }
 
     const statsSpeedHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[5]=s])
+        let arr = stats
+        arr[5]=s
+        setStats(arr)
     }
+
+    useEffect(() => {
+        // Actualiza el título del documento usando la API del navegador
+        console.log(stats)
+      }, [stats]);
+    
 
     const imageHandler = (e) => {
         setImage(e.target.value)
