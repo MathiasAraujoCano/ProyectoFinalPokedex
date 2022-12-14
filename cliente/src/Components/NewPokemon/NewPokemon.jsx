@@ -1,11 +1,10 @@
 import React from "react";
-import Classes from "../NewPokemon/NewPokemon.module.css"
+import Classes from "../Login/NewPokemon.module.css"
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const NewPokemon = (props) => {
 
@@ -96,9 +95,6 @@ const NewPokemon = (props) => {
             <Form>
                     <div className={Classes.Background}></div>
                     <div className={Classes.Header}>Crea tu Nuevo Pokemon!</div>
-                    <Link to={{pathname:"/home"}} style={{ textDecoration: 'none' }} className={Classes.ArrowHome}>
-                        <img className={Classes.MainArrow} src="Materials\Arrow-left.png"  alt=""/>
-                    </Link>
                     <div className={Classes.LoginContainer}>
                         <div className={Classes.TopContainer}>
                             <div className={Classes.Name}>
