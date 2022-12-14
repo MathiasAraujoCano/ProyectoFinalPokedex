@@ -4,7 +4,7 @@ import ListOfPokemon from './Components/Home Page/ListOfPokemon/ListOfPokemos'
 import CharactersPokemon from './Components/Detailed View/CharactersPokemon/CharactersPokemon';
 import Login from './Components/Login/Login';
 import {BrowserRouter, Routes, Route, } from 'react-router-dom';
-import NewPokemon from './Components/Login/NewPokemon';
+import NewPokemon from './Components/NewPokemon/NewPokemon';
 import Register from './Components/Register/Register';
 
 function App() {

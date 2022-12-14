@@ -23,21 +23,10 @@
   border-style: solid;
   border-width: 2px;
   border-radius: 5px;
-  /*
-  background-color: rgb(243, 72, 72)!important;
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-  height: 250px;
-  width: 90%;
-  margin-left: 4%;
-  border-radius: 8px;
-  text-align: center;
-  */
 }
 
 .Email{
-  margin-right:50px;
+  margin-right:38px;
   margin-top: 20px;
   font-family: 'PoppinsBold';
 }
@@ -48,7 +37,7 @@
 }
 
 .Contraseña{
-  margin-right: 20px;
+  margin-right: 8px;
   font-family: 'PoppinsBold';
 }
 
@@ -66,21 +55,9 @@
 
 .LoginIniciar{
   margin-top:60px;
-  margin-left: 40%;
-  font-family: 'PoppinsRegular';
+  margin-left: 39%;
+  font-family: 'PoppinsBold';
 }
-
-
-
-/* 
-.Inputs{
-  margin-top: 20%;
-}
-.InputLogin{
-  height: 15%;
-  border-radius: 5%;
-}
-*/
 
 
 

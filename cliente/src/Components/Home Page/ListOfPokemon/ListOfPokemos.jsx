@@ -32,15 +32,14 @@ const ListOfPokemon = (props) => {
                     <img className="Pokeball" src="Materials/Pokeball.png" alt=""/>
                     <span className="Name">Pokédex</span>
                 </div>
-                <Link to={`/Login`} style={{ textDecoration: 'none' }} className="LoginButton">
-                        <div className="Login">Login</div>
-                </Link> 
                 <div className="ButtonOrg" id="SortNumber" onClick={()=>SortBy()}>
                     <img className="Arrow" src="Materials\Arrow.png"  alt="" />
                     <span className="Hashtag" onClick={handleFilter}>{filterType}</span>
                 </div>
             </div>
-            
+            <Link to={`/Login`} style={{ textDecoration: 'none' }} className="LoginButton">
+                        <div className="Login">Cerrar Sesión</div>
+            </Link> 
             <div className="searchDiv">
                 <input type="search" 
                 placeholder="&#128269; Buscar" 
@@ -50,7 +49,14 @@ const ListOfPokemon = (props) => {
             </div>
                 <div className="PokemonGrid">
                 <Link to={`/NewPokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
-                    <div>new</div>
+                    <div className="NewPokemonButton">
+                        <div>
+                            <img className="NewPokemonImg" src="\Materials\NewPokemonLogo.jpg" alt="" />
+                        </div>
+                        <div className="NewPokemonName">
+                            Agregar
+                        </div>
+                    </div>
                 </Link>
                 {filteredPokemon.map((pokemon, key)=>
                                                 <SimplePokemon 

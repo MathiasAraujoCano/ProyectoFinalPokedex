@@ -16,13 +16,21 @@
     font-family: PoppinsBold;
     color: white;
     font-size: 29px;
-    margin-bottom: -20%;
+    margin-bottom: -43%;
+}
+.MainArrow{
+    height: 26px;
+    width: auto;
+    margin-top: 45%;
+    margin-left: 2%;
+    filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(100%) contrast(100%);
 }
 .LoginContainer{
     display: grid;
     grid-template-columns: 103%;
     grid-template-rows: 15% 50% 35%;
     height: 103vh;
+    margin-top: -31%;
 }
 .TopContainer{
     display: grid;

@@ -25,7 +25,7 @@ const CharactersPokemon = (props) => {
 
                     <div className="MainNav">
                         <div>
-                            <Link to={{pathname:"/"}} style={{ textDecoration: 'none' }}>
+                            <Link to={{pathname:"/home"}} style={{ textDecoration: 'none' }}>
                                 <img className="MainArrow" src="Materials\Arrow-left.png"  alt=""/>
                             </Link>
                         </div>

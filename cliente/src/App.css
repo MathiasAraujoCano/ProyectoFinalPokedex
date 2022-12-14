@@ -18,36 +18,6 @@ body{
   font-family: PoppinsRegular;
   src: url("../public/Materials/Fuentes/Poppins-Regular.ttf");
 }
-.Login{
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 30% 70%;
-  height: 100vh;
-  width: 103%;
-  margin-left: -3%;
-}
-.LogoLogin{
-  grid-area: 1/1/2/2;
-  width: 95%;
-  margin-top: 10%;
-}
-.MainLogin{
-  grid-area: 2/1/3/2;
-  background-color: rgb(243, 72, 72)!important;
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-  height: 60%;
-  width: 90%;
-  margin-left: 5%;
-}
-.Inputs{
-  margin-top: 20%;
-}
-.InputLogin{
-  height: 15%;
-  border-radius: 5%;
-}
 .Title{
   display: grid;
   grid-area: 1/1/3/2;
@@ -68,7 +38,6 @@ body{
   margin-left: 40%;
   font-weight: bolder;
   font-family: PoppinsBold;
-
 }
 .Pokeball{
   display: grid;
@@ -141,10 +110,6 @@ body{
   grid-template-columns: 70% 30%;
   grid-template-rows: 10% 70% 20%;
 }
-.PokemonsCards:hover{
-  cursor: pointer;
-}
-
 .PokemonId{
   font-size: 85%;
   margin-right: 25%;
@@ -175,15 +140,46 @@ body{
   display: grid;
   grid-area: 3/1/4/3;
 }
+.NewPokemonButton{
+  border: 3px solid;
+  border-radius: 15px;
+  border-color: rgb(90, 90, 90);
+  background-color: white !important;
+  margin: 5%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 10% 70% 20%;
+}
+.NewPokemonName{
+  display: grid;
+  background-color: rgb(90, 90, 90);
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  font-family: PoppinsRegular;
+  font-size: small;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: grid;
+  grid-area: 3/1/4/3;
+}
+.NewPokemonImg{
+  display: grid;
+  grid-area: 1/1/3/3;
+  height: 13.5vh;
+  width: 134%;
+  margin-top: 20%;
+  margin-bottom: 20%;
+}
 .Character{
   height: 100vh;
   width: auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 25% 65%;
+  margin-left: -3%;
 
 }
-
 .Background{
   display: grid;
   grid-area: 2/1/3/2;
@@ -235,7 +231,7 @@ body{
   display: grid;
   grid-area: 1/2/2/3;
   margin-left: 10%;
-  margin-top: -115%;
+  margin-top: -125%;
 }
 .imgFixed{
   display: flex;
