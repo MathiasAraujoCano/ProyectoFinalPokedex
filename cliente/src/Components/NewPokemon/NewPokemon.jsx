@@ -110,11 +110,11 @@ const NewPokemon = (props) => {
         <div className={Classes.MainContainer}>
             <Form>
                     <div className={Classes.Background}></div>
-                    <div className={Classes.Header}>Crea tu Nuevo Pokemon!</div>
                     <Link to={`/home`} style={{ textDecoration: 'none' }}>                             
                         <img className={Classes.MainArrow} src="Materials\Arrow-left.png"  alt=""/>                     
                     </Link>
-                    <div className={Classes.LoginContainer}>
+                    <div className={Classes.Header}>Crea tu Pokemon!</div>
+                    <div className={Classes.Container}>
                         <div className={Classes.TopContainer}>
                             <div className={Classes.Name}>
                                 <p className={Classes.Nombre}>Nombre</p>
@@ -122,16 +122,16 @@ const NewPokemon = (props) => {
                                     <InputGroup.Text id="inputGroup-sizing-default" >
                                     </InputGroup.Text>
                                     <Form.Control
+                                    className={Classes.NameImput}
                                     aria-label="Nombre"
                                     aria-describedby="inputGroup-sizing-default"
-                                    style={{ width: '80%' }}
                                     />
                                 </InputGroup>
                             </div>
                             <div className={Classes.Types}>
                             <p className={Classes.Tipos}>Tipos</p>
                                 <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select style={{ width: '90%' }} onChange={typeHandler}>
+                                    <Form.Select className={Classes.TypeImput} onChange={typeHandler}>
                                         <option>Tipo</option>
                                         <option value="electric">Electric</option>
                                         <option value="fire">Fire</option>
@@ -154,7 +154,7 @@ const NewPokemon = (props) => {
                                     </Form.Select>
                                 </FloatingLabel>
                                 <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select style={{ width: '90%' }} onChange={typeHandler}>
+                                    <Form.Select className={Classes.Type2Imput} onChange={typeHandler}>
                                         <option>Tipo</option>
                                         <option value="electric">Electric</option>
                                         <option value="fire">Fire</option>
@@ -180,20 +180,20 @@ const NewPokemon = (props) => {
                             <div className={Classes.Image}>
                                 <p className={Classes.Imagen}>Imagen</p>
                                 <Form.Group controlId="formFile" className="mb-3">
-                                    <Form.Control type="text" style={{ width: '90%' }} onChange={imageHandler}/>
+                                    <Form.Control type="text" className={Classes.ImageImput} onChange={imageHandler}/>
                                 </Form.Group>
                             </div>
                             <div className={Classes.Weight}>
                                 <p className={Classes.Peso}>Peso</p>
                                 <InputGroup >
-                                    <Form.Control style={{ width: '80%' }} type="text" onChange={weightHandler}/>
+                                    <Form.Control className={Classes.WeightImput} type="text" onChange={weightHandler}/>
                                     <InputGroup.Text>Kg</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Height}>
                                 <p className={Classes.Altura}>Altura</p>
                                 <InputGroup onChange={heightHandler}>
-                                    <Form.Control style={{ width: '75%' }}/>
+                                    <Form.Control className={Classes.HeightImput}/>
                                     <InputGroup.Text>Mts</InputGroup.Text>
                                 </InputGroup>
                             </div>
@@ -205,57 +205,66 @@ const NewPokemon = (props) => {
                                     <Form.Control
                                     aria-label="Nombre"
                                     aria-describedby="inputGroup-sizing-default"
-                                    style={{ width: '80%' }}
+                                    className={Classes.MoveImput}
+                                    />
+                                </InputGroup>
+                                <InputGroup className="mb-3" onChange={movesHandler}>
+                                    <InputGroup.Text id="inputGroup-sizing-default" >
+                                    </InputGroup.Text>
+                                    <Form.Control
+                                    aria-label="Nombre"
+                                    aria-describedby="inputGroup-sizing-default"
+                                    className={Classes.Move2Imput}
                                     />
                                 </InputGroup>
                             </div>
                             <div className={Classes.Description}>
                                 <p className={Classes.Descripcion}>Descripción</p>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3} style={{ width: '90%' }} onChange={descriptionHandler} />
+                                    <Form.Control as="textarea" rows={3} className={Classes.DescriptionImput} onChange={descriptionHandler} />
                                 </Form.Group>
                             </div>
                         </div>
                         <div className={Classes.StatsContainer}>
                             <div className={Classes.Hp}>
                                 <InputGroup onBlur={statsHPHandler}>
-                                <Form.Control style={{ width: '60%' }}/>
+                                <Form.Control className={Classes.HpImput}/>
                                     <InputGroup.Text>Hp</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Atk}>
                                 <InputGroup onBlur={statsAtkHandler}>
-                                <Form.Control style={{ width: '60%' }}/>
+                                <Form.Control className={Classes.AtkImput}/>
                                     <InputGroup.Text>Atk</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Def}>
                                 <InputGroup onBlur={statsDefHandler}>
-                                <Form.Control style={{ width: '60%' }}/>
+                                <Form.Control className={Classes.DefImput}/>
                                     <InputGroup.Text>Def</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spa}>
                                 <InputGroup onBlur={statsSpaHandler}>
-                                <Form.Control style={{ width: '60%' }}/>
+                                <Form.Control className={Classes.SpaImput}/>
                                     <InputGroup.Text>Spa</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spd}>
                                 <InputGroup onBlur={statsSpdHandler}>
-                                <Form.Control style={{ width: '60%' }}/>
+                                <Form.Control className={Classes.SpdImput}/>
                                     <InputGroup.Text>Spd</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Speed}>
                                 <InputGroup onBlur={statsSpeedHandler}>
-                                    <Form.Control style={{ width: '60%' }}/>
+                                    <Form.Control className={Classes.SpeedImput}/>
                                     <InputGroup.Text>Speed</InputGroup.Text>
                                 </InputGroup>
                             </div>
                         </div>
                         <div className={Classes.Button}>
-                            <Button variant="primary" type="submit" style={{ width: '60%' }} onClick={submitHandler}>
+                            <Button variant="primary" type="submit" className={Classes.ButtonImput} onClick={submitHandler}>
                                 Crear!
                             </Button>
                         </div>
