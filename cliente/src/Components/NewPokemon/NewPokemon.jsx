@@ -1,10 +1,11 @@
 import React from "react";
-import Classes from "../Login/NewPokemon.module.css"
+import Classes from "./NewPokemon.module.css"
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
+
 
 const NewPokemon = (props) => {
 
@@ -17,7 +18,10 @@ const NewPokemon = (props) => {
     const [stats, setStats] = useState([])
     const [image, setImage] = useState()
     const [idPokemon, setIdPokemon] = useState()
-    
+
+    const onlyNumbers = /^[0-9\b]+$/;
+
+
     const idPoke = () => {
         let id = Math.floor(Math.random()*(3000 - 1000)) + 1500
         setIdPokemon(id)
@@ -33,8 +37,13 @@ const NewPokemon = (props) => {
     }
 
     const weightHandler = (e) => {
-        setWeight(e.target.value)
-    }
+        let a = e.target.value
+        if (!Number(a)){
+            return
+        }
+        console.log("el valor es: " + a.value)
+        setWeight(a)
+   }
 
     const heightHandler = (e) => {
         setHeight(e.target.value)
@@ -51,32 +60,38 @@ const NewPokemon = (props) => {
 
     const statsHPHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[0]=s])
+        let arr = stats
+        setStats([...arr, arr[5]=s])
     }
 
     const statsAtkHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[1]=s])
+        let arr = stats
+        setStats([...arr, arr[5]=s])
     }
 
     const statsDefHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[2]=s])
+        let arr = stats
+        setStats([...arr, arr[5]=s])
     }
 
     const statsSpaHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[3]=s])
+        let arr = stats
+        setStats([...arr, arr[5]=s])
     }
 
     const statsSpdHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[4]=s])
+        let arr = stats
+        setStats([...arr, arr[5]=s])
     }
 
     const statsSpeedHandler = (e) => {
         let s = e.target.value
-        setStats(stats => [...stats, stats[5]=s])
+        let arr = stats
+        setStats([...arr, arr[5]=s])
     }
 
     const imageHandler = (e) => {
@@ -86,7 +101,7 @@ const NewPokemon = (props) => {
     const submitHandler = (e) => {
         e.preventDefault()
         idPoke()
-        console.log(idPokemon)
+        console.log(stats)
         props.insertPokemon(idPokemon, name, type, weight, height, moves, description, stats, image)
     }
 
@@ -136,8 +151,8 @@ const NewPokemon = (props) => {
                             </div>
                             <div className={Classes.Weight}>
                                 <p className={Classes.Peso}>Peso</p>
-                                <InputGroup onChange={weightHandler}>
-                                    <Form.Control style={{ width: '80%' }}/>
+                                <InputGroup >
+                                    <Form.Control style={{ width: '80%' }} type="text" onChange={weightHandler}/>
                                     <InputGroup.Text>Kg</InputGroup.Text>
                                 </InputGroup>
                             </div>
@@ -161,7 +176,7 @@ const NewPokemon = (props) => {
                             <div className={Classes.Description}>
                                 <p className={Classes.Descripcion}>Descripción</p>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3} style={{ width: '90%' }} onChange={descriptionHandler}/>
+                                    <Form.Control as="textarea" rows={3} style={{ width: '90%' }} onChange={descriptionHandler} />
                                 </Form.Group>
                             </div>
                         </div>
@@ -209,7 +224,6 @@ const NewPokemon = (props) => {
                             </Button>
                         </div>
                     </div>
-
             </Form>
         </div>
 
