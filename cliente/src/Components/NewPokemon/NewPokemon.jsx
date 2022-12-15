@@ -133,17 +133,47 @@ const NewPokemon = (props) => {
                                 <FloatingLabel controlId="floatingSelect">
                                     <Form.Select style={{ width: '90%' }} onChange={typeHandler}>
                                         <option>Tipo</option>
-                                        <option value="Fire">Fuego</option>
-                                        <option value="Electrico">Electrico</option>
-                                        <option value="Planta">Planta</option>
+                                        <option value="electric">Electric</option>
+                                        <option value="fire">Fire</option>
+                                        <option value="psychic">Psychic</option>
+                                        <option value="grass">Grass</option>
+                                        <option value="water">Water</option>
+                                        <option value="poison">Poison</option>
+                                        <option value="bug">Bug</option>
+                                        <option value="flying">Flying</option>
+                                        <option value="steel">Steel</option>
+                                        <option value="rock">Rock</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="ghost">Ghost</option>
+                                        <option value="type">Type</option>
+                                        <option value="fighting">Fighting</option>
+                                        <option value="ground">Ground</option>
+                                        <option value="fairy">Fairy</option>
+                                        <option value="ice">Ice</option>
+                                        <option value="dragon">Dragon</option>
                                     </Form.Select>
                                 </FloatingLabel>
                                 <FloatingLabel controlId="floatingSelect">
                                     <Form.Select style={{ width: '90%' }} onChange={typeHandler}>
                                         <option>Tipo</option>
-                                        <option value="Fuego">Fuego</option>
-                                        <option value="Electrico">Electrico</option>
-                                        <option value="Planta">Planta</option>
+                                        <option value="electric">Electric</option>
+                                        <option value="fire">Fire</option>
+                                        <option value="psychic">Psychic</option>
+                                        <option value="grass">Grass</option>
+                                        <option value="water">Water</option>
+                                        <option value="poison">Poison</option>
+                                        <option value="bug">Bug</option>
+                                        <option value="flying">Flying</option>
+                                        <option value="steel">Steel</option>
+                                        <option value="rock">Rock</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="ghost">Ghost</option>
+                                        <option value="type">Type</option>
+                                        <option value="fighting">Fighting</option>
+                                        <option value="ground">Ground</option>
+                                        <option value="fairy">Fairy</option>
+                                        <option value="ice">Ice</option>
+                                        <option value="dragon">Dragon</option>
                                     </Form.Select>
                                 </FloatingLabel>
                             </div>
