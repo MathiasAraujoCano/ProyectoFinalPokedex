@@ -11,13 +11,31 @@ const Login = (props) => {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [emailIsValid, setEmailIsValid] = useState(false)
+    const [passwordIsValid, setPasswordIsValid] = useState(false)
+
+    const loginIsValid = emailIsValid && passwordIsValid
 
     const emailHandler = (event) => {
-        setEmail(event.target.value)
+        let a = event.target.value
+        if (a.includes('@')) {
+            setEmail(a)
+            setEmailIsValid(true)
+        }
+        else {
+            console.log("formato no correcto del mail")
+        }
     }
 
     const passwordHandler = (event) => {
-        setPassword(event.target.value)
+        let a = event.target.value
+        if (a.value !== '') {
+            setPassword(a)
+            setPasswordIsValid(true)
+        }
+        else {
+            setPasswordIsValid(false)
+        }
+
     }
 
     const submitHandler = (event => {
@@ -27,6 +45,7 @@ const Login = (props) => {
         setEmail('')
         setPassword('')
     })
+    
 
         return(
 
@@ -44,7 +63,7 @@ const Login = (props) => {
                             <Form.Control 
                                 type="email" 
                                 placeholder="Ingresar Email" 
-                                onChange={emailHandler} 
+                                onBlur={emailHandler} 
                                 value={email}
                             />
                         </Form.Group>
@@ -54,7 +73,7 @@ const Login = (props) => {
                             <Form.Control 
                                 type="password" 
                                 placeholder="Contraseña"
-                                onChange={passwordHandler}
+                                onBlur={passwordHandler}
                                 value={password}
                             />
                         </Form.Group>

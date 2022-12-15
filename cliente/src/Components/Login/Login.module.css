@@ -59,7 +59,9 @@
   font-family: 'PoppinsBold';
 }
 
-
+.invalid input{
+  border-color: red;
+}
 
 
 
