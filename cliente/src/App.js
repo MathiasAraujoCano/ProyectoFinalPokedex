@@ -87,11 +87,9 @@ const getUser = (email, password) => {
     setUserLogin(data)
     if (data.token) {
       setUserIsValid(true)
+    } else if (data.message) {
+      setHasError(data.message)
     }
-    else {
-      setUserIsValid(false)
-    }
-
     setIsLoading(false)
   })
   .catch((err => {
@@ -185,7 +183,7 @@ useEffect(()=>{
           }/>
            <Route path="/"
           element={
-            <Login login={getUser} isLoading={isLoading}/>
+            <Login login={getUser} isLoading={isLoading} hasError={hasError}/>
           }/>
           <Route path="/NewPokemon"
           element={

@@ -44,6 +44,7 @@ const Login = (props) => {
 
     const submitHandler = (event => {
         event.preventDefault()
+        console.log(props.hasError)
 
         if (!emailIsValid || !passwordIsValid){
             console.log("error en inputs")
@@ -95,7 +96,7 @@ const Login = (props) => {
                                     />
                                 </Form.Group>
                             </div>
-                        {/*props.hasError && <p>{props.hasError}</p>*/}
+                        {props.hasError && <p>{props.hasError}</p>}
                         <Button className={Classes.LoginIniciar} type="submit" onClick={submitHandler}>
                             Iniciar Sesión
                         </Button>
