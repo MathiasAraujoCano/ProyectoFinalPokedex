@@ -61,31 +61,31 @@ const NewPokemon = (props) => {
     const statsHPHandler = (e) => {
         let s = e.target.value
         let arr = stats
-        setStats([...arr, arr[5]=s])
+        setStats([...arr, arr[0]=s])
     }
 
     const statsAtkHandler = (e) => {
         let s = e.target.value
         let arr = stats
-        setStats([...arr, arr[5]=s])
+        setStats([...arr, arr[1]=s])
     }
 
     const statsDefHandler = (e) => {
         let s = e.target.value
         let arr = stats
-        setStats([...arr, arr[5]=s])
+        setStats([...arr, arr[2]=s])
     }
 
     const statsSpaHandler = (e) => {
         let s = e.target.value
         let arr = stats
-        setStats([...arr, arr[5]=s])
+        setStats([...arr, arr[3]=s])
     }
 
     const statsSpdHandler = (e) => {
         let s = e.target.value
         let arr = stats
-        setStats([...arr, arr[5]=s])
+        setStats([...arr, arr[4]=s])
     }
 
     const statsSpeedHandler = (e) => {
