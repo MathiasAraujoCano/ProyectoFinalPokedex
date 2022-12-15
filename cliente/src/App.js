@@ -6,6 +6,7 @@ import Login from './Components/Login/Login';
 import {BrowserRouter, Routes, Route, } from 'react-router-dom';
 import NewPokemon from './Components/NewPokemon/NewPokemon';
 import Register from './Components/Register/Register';
+import LoadingPage from './Components/LoadingPage/LoadingPage';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
   const [userIsValid, setUserIsValid] = useState(false)
   const [newInsertPokemon, setNewInsertPokemon] = useState()
   const [userRegister, setUserRegister] = useState()
+  const [isLoading, setIsLoading] = useState(false)
 
   const getPkmn = () =>{
     let auxB = []
@@ -71,6 +73,7 @@ const insertPokemon = (idPokemon, name, type, weight, height, moves, description
 
 
 const getUser = (email, password) => {
+  setIsLoading(true)
   const requestOption = {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -86,9 +89,11 @@ const getUser = (email, password) => {
     } else {
       setUserIsValid(false)
     }
+    setIsLoading(false)
   })
   .catch((err => {
     console.log('Hubo un error con la petición del logeo' + err.message)
+    setIsLoading(false)
   }))
 }
 
@@ -177,7 +182,7 @@ useEffect(()=>{
           }/>
            <Route path="/"
           element={
-            <Login login={getUser}/>
+            <Login login={getUser} isLoading={isLoading}/>
           }/>
           <Route path="/NewPokemon"
           element={
