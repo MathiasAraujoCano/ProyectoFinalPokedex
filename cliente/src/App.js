@@ -17,6 +17,7 @@ function App() {
   const [newInsertPokemon, setNewInsertPokemon] = useState()
   const [userRegister, setUserRegister] = useState()
   const [isLoading, setIsLoading] = useState(false)
+  const [hasError, setHasError] = useState()
 
   const getPkmn = () =>{
     let auxB = []
@@ -86,9 +87,11 @@ const getUser = (email, password) => {
     setUserLogin(data)
     if (data.token) {
       setUserIsValid(true)
-    } else {
+    }
+    else {
       setUserIsValid(false)
     }
+
     setIsLoading(false)
   })
   .catch((err => {

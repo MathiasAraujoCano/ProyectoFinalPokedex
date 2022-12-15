@@ -14,16 +14,15 @@ const Login = (props) => {
     const [passwordIsValid, setPasswordIsValid] = useState(false)
     const [isTouched, setIsTouched] = useState(false)
 
-    const loginIsValid = emailIsValid && passwordIsValid
-
     const emailHandler = (event) => {
         let a = event.target.value
-        if (a.includes('@')) {
-            setEmail(a)
-            setEmailIsValid(true)
+        if (!a.includes('@') || a.length === 0) {
+            console.log("formato no correcto del mail")
+            setEmailIsValid(false)
         }
         else {
-            console.log("formato no correcto del mail")
+            setEmail(a)
+            setEmailIsValid(true)
         }
     }
 
@@ -33,12 +32,12 @@ const Login = (props) => {
 
     const passwordHandler = (event) => {
         let a = event.target.value
-        if (a.value !== '') {
-            setPassword(a)
-            setPasswordIsValid(true)
+        if (a.length === 0) {
+            setPasswordIsValid(false)
+            console.log("contraseña vacia")
         }
         else {
-            setPasswordIsValid(false)
+            setPasswordIsValid(true)
         }
 
     }
@@ -46,12 +45,22 @@ const Login = (props) => {
     const submitHandler = (event => {
         event.preventDefault()
 
-        props.login(email, password)
-        setEmail('')
-        setPassword('')
+        if (!emailIsValid || !passwordIsValid){
+            console.log("error en inputs")
+            setEmail('')
+            setPassword('')
+            setEmailIsValid(false)
+            setPasswordIsValid(false)
+        } else {
+            props.login(email, password)
+            setEmail('')
+            setPassword('')
+            setEmailIsValid(false)
+            setPasswordIsValid(false)
+        }
     })
     
-    const validation = !emailIsValid && isTouched ? `${Classes.formEmail} ${Classes.invalid}` : `${Classes.formEmail}`
+    const emailValidation = !emailIsValid && isTouched ? `${Classes.formEmail} ${Classes.invalid}` : `${Classes.formEmail}`
 
         return(
 
@@ -64,7 +73,7 @@ const Login = (props) => {
                         <div className={Classes.FormLogin}>
                             <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
                             <div className={Classes.InputContainer}>
-                                <Form.Group className={validation} controlId="formEmail">
+                                <Form.Group className={emailValidation} controlId="formEmail">
                                     <Form.Label className={Classes.Email}>Email</Form.Label>
                                     <Form.Control 
                                         className={Classes.SubmitEmail}
@@ -86,7 +95,7 @@ const Login = (props) => {
                                     />
                                 </Form.Group>
                             </div>
-                        
+                        {/*props.hasError && <p>{props.hasError}</p>*/}
                         <Button className={Classes.LoginIniciar} type="submit" onClick={submitHandler}>
                             Iniciar Sesión
                         </Button>
