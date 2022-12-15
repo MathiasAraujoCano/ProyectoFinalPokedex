@@ -180,9 +180,19 @@
     background-color: rgb(237, 255, 136);
     border-radius: 20px;
     margin-left: 3.5%;
+    margin-top: 2%;
     border-color: black;
     border-style: solid;
     border-width: 2px;
+}
+.Stats{
+    grid-area: 3/1/4/2;
+    text-align: center;
+    margin-top: -5%;
+    margin-right: 5%;
+    font-family: 'PoppinsBold';
+    font-size: 20px;
+    color: white;
 }
 .Hp{
     grid-area: 1/1/2/2;

@@ -225,6 +225,7 @@ const NewPokemon = (props) => {
                                 </Form.Group>
                             </div>
                         </div>
+                        <div className={Classes.Stats}>Stats</div>
                         <div className={Classes.StatsContainer}>
                             <div className={Classes.Hp}>
                                 <InputGroup onBlur={statsHPHandler}>
