@@ -199,13 +199,15 @@ const NewPokemon = (props) => {
                             </div>
                             <div className={Classes.Moves}>
                                 <p className={Classes.Movimientos}>Movimientos</p>
-                                <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select style={{ width: '90%' }} onChange={movesHandler}>
-                                        <option>Tipo</option>
-                                        <option value="Megapunch">Megapunch</option>
-                                        <option value="Impact trueno">Impact trueno</option>
-                                    </Form.Select>
-                                </FloatingLabel>
+                                <InputGroup className="mb-3" onChange={movesHandler}>
+                                    <InputGroup.Text id="inputGroup-sizing-default" >
+                                    </InputGroup.Text>
+                                    <Form.Control
+                                    aria-label="Nombre"
+                                    aria-describedby="inputGroup-sizing-default"
+                                    style={{ width: '80%' }}
+                                    />
+                                </InputGroup>
                             </div>
                             <div className={Classes.Description}>
                                 <p className={Classes.Descripcion}>Descripción</p>
