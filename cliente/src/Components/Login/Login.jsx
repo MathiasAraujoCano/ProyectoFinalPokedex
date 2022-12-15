@@ -12,6 +12,7 @@ const Login = (props) => {
     const [password, setPassword] = useState()
     const [emailIsValid, setEmailIsValid] = useState(false)
     const [passwordIsValid, setPasswordIsValid] = useState(false)
+    const [isTouched, setIsTouched] = useState(false)
 
     const loginIsValid = emailIsValid && passwordIsValid
 
@@ -24,6 +25,10 @@ const Login = (props) => {
         else {
             console.log("formato no correcto del mail")
         }
+    }
+
+    const blurHandler = () => {
+        setIsTouched(true)
     }
 
     const passwordHandler = (event) => {
@@ -46,6 +51,7 @@ const Login = (props) => {
         setPassword('')
     })
     
+    const validation = !emailIsValid && isTouched ? `${Classes.formEmail} ${Classes.invalid}` : `${Classes.formEmail}`
 
         return(
 
@@ -58,12 +64,13 @@ const Login = (props) => {
                     <img className={Classes.LogoLogin} src="Materials\LogoLogin.png" alt="" />            
                         <div className={Classes.FormLogin}>
                             <p className={Classes.p}>Ingresá tus datos! </p>
-                        <Form.Group className={Classes.formEmail} controlId="formEmail">
+                        <Form.Group className={validation} controlId="formEmail">
                             <Form.Label className={Classes.Email}>Email</Form.Label>
                             <Form.Control 
                                 type="email" 
                                 placeholder="Ingresar Email" 
-                                onBlur={emailHandler} 
+                                onChange={emailHandler} 
+                                onBlur={blurHandler}
                                 value={email}
                             />
                         </Form.Group>
