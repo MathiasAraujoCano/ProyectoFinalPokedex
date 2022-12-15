@@ -10,6 +10,7 @@ const Login = (props) => {
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [emailIsValid, setEmailIsValid] = useState(false)
 
     const emailHandler = (event) => {
         setEmail(event.target.value)
