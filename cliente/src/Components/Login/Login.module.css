@@ -21,7 +21,7 @@
   grid-area: 2/1/3/2;
   background-image: url("/public/Materials/LoginFondo.jpeg");
   width: 95%;
-  height: 55vh;
+  height: 60vh;
   padding: 2px;
   margin-top: 5px;
   margin-left: 1.5%;
@@ -85,18 +85,23 @@
 }
 
 .LoginIniciar{
-  margin-top: 6%;
+  margin-top: 2%;
   margin-left: 37%;
   font-family: 'PoppinsBold';
 }
 
 .invalid input{
-  background-color: red;
+  background-color: rgb(250, 193, 193);
+}
+.Error{
+  text-align: center;
+  font-family: 'PoppinsBold';
+  font-size: 15px;
 }
 .Gif{
   height: 270px;
-  margin-top: -30%;
-  margin-left: -10%;
+  margin-top: -37%;
+  margin-left: -13%;
 }
 
 
