@@ -84,7 +84,7 @@ const Register = (props) => {
                     <div className={Classes.FormRegister}>
                     <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
                     <div className={Classes.InputContainer}>
-                        <Form.Group className={Classes.formName} controlId="formEmail">
+                        <Form.Group className={Classes.formName} controlId="formNameRegister">
                             <Form.Label className={Classes.Name}>Nombre</Form.Label>
                             <Form.Control 
                                 className={Classes.SubmitName}
@@ -94,7 +94,7 @@ const Register = (props) => {
                                 value={name}
                             />
                         </Form.Group>                   
-                        <Form.Group className={Classes.formEmail} controlId="formEmail">
+                        <Form.Group className={Classes.formEmail} controlId="formEmailRegister">
                             <Form.Label className={Classes.Email}>Email</Form.Label>
                             <Form.Control 
                                 className={Classes.SubmitEmail}
@@ -105,7 +105,7 @@ const Register = (props) => {
                                 value={email}
                             />
                         </Form.Group>
-                        <Form.Group className={Classes.formPassword} controlId="formPassword">
+                        <Form.Group className={Classes.formPassword} controlId="formPasswordRegister">
                             <Form.Label className={Classes.Contraseña}>Contraseña</Form.Label>
                             <Form.Control 
                                 className={Classes.SubmitPassword}

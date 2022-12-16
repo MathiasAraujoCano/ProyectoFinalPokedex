@@ -49,18 +49,19 @@ router.post('/register', async (req, res) => {
         email: req.body.email,
         password: password
     }
+    console.log(newUser)
     user.findOne({
         where: {
             email: newUser.email
         }
     })
     .then((data) => {
-    if (data.email) {
-        res.status(401).send({ message: 'El usuario ya está registrado' })
-    } else {
-        user.create(newUser)
-        res.send({ success: true, newUser })
-    }
+        if (data) {
+            res.status(401).send({ message: 'El usuario ya está registrado' })
+        } else {
+            user.create(newUser)
+            res.send({ success: true, newUser })
+        }
     })
     .catch(err => {res.status(500).send({ message: err.message })})
 })

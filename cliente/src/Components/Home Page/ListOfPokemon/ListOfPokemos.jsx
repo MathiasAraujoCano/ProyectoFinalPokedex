@@ -5,11 +5,6 @@ import { Link } from "react-router-dom";
 const ListOfPokemon = (props) => {
 
     const [searchText, setSearchText] = useState("")
-
-    useEffect (()=>{
-        setFilteredPokemon(props.getPokemon.filter(element => element.name.toLowerCase().includes(searchText.toLowerCase())))
-    },[searchText,props.getPokemon])
-
     const [filteredPokemon, setFilteredPokemon] = useState(props.getPokemon)
     const [filterType, setFilterType] = useState("#")
 
@@ -23,8 +18,15 @@ const ListOfPokemon = (props) => {
         }else{
             setFilteredPokemon(props.getPokemon.sort((a,b)=> String(a.name).localeCompare(b.name)))
         }
-        
     }
+
+
+    useEffect (()=>{
+        setFilteredPokemon(props.getPokemon.filter(element => element.name.toLowerCase().includes(searchText.toLowerCase())))
+    },[searchText,props.getPokemon])
+
+        
+
     return(
         <div id="MainPage">
             <div className="Title">
