@@ -6,7 +6,6 @@ import Login from './Components/Login/Login';
 import {BrowserRouter, Routes, Route, } from 'react-router-dom';
 import NewPokemon from './Components/NewPokemon/NewPokemon';
 import Register from './Components/Register/Register';
-import LoadingPage from './Components/LoadingPage/LoadingPage';
 
 function App() {
 
