@@ -16,11 +16,16 @@ const NewPokemon = (props) => {
     const [height, setHeight] = useState()
     const [moves, setMoves] = useState([])
     const [description, setDescription] = useState()
-    const [stats, setStats] = useState([])
+    const [stats, setStats] = useState([
+        {name: "HP", value: null},
+        {name: "Atk", value: null},
+        {name: "Def", value:  null},
+        {name: "Spa", value: null},
+        {name: "Spd", value: null},
+        {name: "Speed", value: null}
+    ])
     const [image, setImage] = useState()
     const [idPokemon, setIdPokemon] = useState()
-
-    const onlyNumbers = /^[0-9\b]+$/;
 
 
     const idPoke = () => {
@@ -61,38 +66,56 @@ const NewPokemon = (props) => {
 
     const statsHPHandler = (e) => {
         let s = e.target.value
-        let arr = stats
-        setStats([...arr, arr[0]=s])
+        const arr = stats.filter((item) => item.name !== 'HP')
+        console.log(arr)
+        arr.push({name: "HP", value: s})
+        setStats(arr)
+        console.log(arr)
     }
 
     const statsAtkHandler = (e) => {
         let s = e.target.value
-        let arr = stats
-        setStats([...arr, arr[1]=s])
+        const arr = stats.filter((item) => item.name !== 'Atk')
+        console.log(arr)
+        arr.push({name: "Atk", value: s})
+        setStats(arr)
+        console.log(arr)
     }
 
     const statsDefHandler = (e) => {
         let s = e.target.value
-        let arr = stats
-        setStats([...arr, arr[2]=s])
+        const arr = stats.filter((item) => item.name !== 'Def')
+        console.log(arr)
+        arr.push({name: "Def", value: s})
+        setStats(arr)
+        console.log(arr)
     }
 
     const statsSpaHandler = (e) => {
         let s = e.target.value
-        let arr = stats
-        setStats([...arr, arr[3]=s])
+        const arr = stats.filter((item) => item.name !== 'Spa')
+        console.log(arr)
+        arr.push({name: "Spa", value: s})
+        setStats(arr)
+        console.log(arr)
     }
 
     const statsSpdHandler = (e) => {
         let s = e.target.value
-        let arr = stats
-        setStats([...arr, arr[4]=s])
+        const arr = stats.filter((item) => item.name !== 'Spd')
+        console.log(arr)
+        arr.push({name: "Spd", value: s})
+        setStats(arr)
+        console.log(arr)
     }
 
     const statsSpeedHandler = (e) => {
         let s = e.target.value
-        let arr = stats
-        setStats([...arr, arr[5]=s])
+        const arr = stats.filter((item) => item.name !== 'Speed')
+        console.log(arr)
+        arr.push({name: "Speed", value: s})
+        setStats(arr)
+        console.log(arr)
     }
 
     const imageHandler = (e) => {
@@ -228,38 +251,38 @@ const NewPokemon = (props) => {
                         <div className={Classes.Stats}>Stats</div>
                         <div className={Classes.StatsContainer}>
                             <div className={Classes.Hp}>
-                                <InputGroup onBlur={statsHPHandler}>
-                                <Form.Control type="number" className={Classes.HpImput}/>
+                                <InputGroup >
+                                <Form.Control type="number" className={Classes.HpImput} onBlur={statsHPHandler}/>
                                     <InputGroup.Text>Hp</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Atk}>
-                                <InputGroup onBlur={statsAtkHandler}>
-                                <Form.Control type="number" className={Classes.AtkImput}/>
+                                <InputGroup >
+                                <Form.Control type="number" className={Classes.AtkImput} onBlur={statsAtkHandler}/>
                                     <InputGroup.Text>Atk</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Def}>
-                                <InputGroup onBlur={statsDefHandler}>
-                                <Form.Control type="number" className={Classes.DefImput}/>
+                                <InputGroup>
+                                <Form.Control type="number" className={Classes.DefImput} onBlur={statsDefHandler}/>
                                     <InputGroup.Text>Def</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spa}>
-                                <InputGroup onBlur={statsSpaHandler}>
-                                <Form.Control type="number" className={Classes.SpaImput}/>
+                                <InputGroup>
+                                <Form.Control type="number" className={Classes.SpaImput} onBlur={statsSpaHandler}/>
                                     <InputGroup.Text>Spa</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spd}>
-                                <InputGroup onBlur={statsSpdHandler}>
-                                <Form.Control type="number" className={Classes.SpdImput}/>
+                                <InputGroup >
+                                <Form.Control type="number" className={Classes.SpdImput} onBlur={statsSpdHandler}/>
                                     <InputGroup.Text>Spd</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Speed}>
-                                <InputGroup onBlur={statsSpeedHandler}>
-                                    <Form.Control type="number" className={Classes.SpeedImput}/>
+                                <InputGroup >
+                                    <Form.Control type="number" className={Classes.SpeedImput} onBlur={statsSpeedHandler}/>
                                     <InputGroup.Text>Speed</InputGroup.Text>
                                 </InputGroup>
                             </div>
