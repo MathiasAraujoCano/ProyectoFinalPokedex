@@ -106,6 +106,7 @@ const newUser = (name, email, password) => {
       headers: {'Content-Type' : 'application/json' },
       body: JSON.stringify({ name, email, password })
     }
+    console.log(requestOption)
     fetch('http://localhost:8001/auth/register', requestOption)
     .then(response => response.json())
     .then(data => {

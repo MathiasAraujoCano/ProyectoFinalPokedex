@@ -20,7 +20,6 @@ const Login = (props) => {
             setEmailIsValid(false)
         }
         else {
-            //setEmail(a)
             setEmailIsValid(true)
         }
     }

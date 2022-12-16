@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const Register = (props) => {
 
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [nameIsValid, setNameIsValid] = useState(false)
     const [emailIsValid, setEmailIsValid] = useState(false)
     const [passwordIsValid, setPasswordIsValid] = useState(false)
@@ -30,9 +30,13 @@ const Register = (props) => {
             setEmailIsValid(false)
         }
         else {
-            setEmail(a)
             setEmailIsValid(true)
         }
+    }
+
+    const takeEmailHandler = (event) => {
+        let a = event.target.value
+        setEmail(a)
     }
 
     const passwordHandler = (event) => {
@@ -50,7 +54,6 @@ const Register = (props) => {
 
     const submitHandler = (event => {
         event.preventDefault()
-        //console.log(props.hasError)
         console.log(name)
         console.log(email)
         console.log(password)
@@ -76,7 +79,7 @@ const Register = (props) => {
 
         return(
            
-            <Form className={Classes.MainContainer}>
+            <Form className={Classes.MainContainer} onSubmit={submitHandler}>
                 <img className={Classes.LogoRegister} src="Materials\LogoLogin.png" alt="" />                     
                     <div className={Classes.FormRegister}>
                     <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
@@ -97,7 +100,8 @@ const Register = (props) => {
                                 className={Classes.SubmitEmail}
                                 type="email" 
                                 placeholder="Ingresa tu Email" 
-                                onChange={emailHandler}
+                                onChange={takeEmailHandler}
+                                onBlur={emailHandler}
                                 value={email}
                             />
                         </Form.Group>
@@ -112,7 +116,7 @@ const Register = (props) => {
                             />
                         </Form.Group>
                     </div>
-                    <Button className={Classes.Register} type="submit" onClick={submitHandler}>
+                    <Button className={Classes.Register} type="submit">
                         Registrame
                     </Button>
                 </div>
