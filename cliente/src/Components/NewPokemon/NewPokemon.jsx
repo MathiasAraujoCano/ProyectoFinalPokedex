@@ -186,14 +186,14 @@ const NewPokemon = (props) => {
                             <div className={Classes.Weight}>
                                 <p className={Classes.Peso}>Peso</p>
                                 <InputGroup >
-                                    <Form.Control className={Classes.WeightImput} type="text" onChange={weightHandler}/>
+                                    <Form.Control type="number" className={Classes.WeightImput} onChange={weightHandler}/>
                                     <InputGroup.Text>Kg</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Height}>
                                 <p className={Classes.Altura}>Altura</p>
                                 <InputGroup onChange={heightHandler}>
-                                    <Form.Control className={Classes.HeightImput}/>
+                                    <Form.Control type="number" className={Classes.HeightImput}/>
                                     <InputGroup.Text>Mts</InputGroup.Text>
                                 </InputGroup>
                             </div>
@@ -229,37 +229,37 @@ const NewPokemon = (props) => {
                         <div className={Classes.StatsContainer}>
                             <div className={Classes.Hp}>
                                 <InputGroup onBlur={statsHPHandler}>
-                                <Form.Control className={Classes.HpImput}/>
+                                <Form.Control type="number" className={Classes.HpImput}/>
                                     <InputGroup.Text>Hp</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Atk}>
                                 <InputGroup onBlur={statsAtkHandler}>
-                                <Form.Control className={Classes.AtkImput}/>
+                                <Form.Control type="number" className={Classes.AtkImput}/>
                                     <InputGroup.Text>Atk</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Def}>
                                 <InputGroup onBlur={statsDefHandler}>
-                                <Form.Control className={Classes.DefImput}/>
+                                <Form.Control type="number" className={Classes.DefImput}/>
                                     <InputGroup.Text>Def</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spa}>
                                 <InputGroup onBlur={statsSpaHandler}>
-                                <Form.Control className={Classes.SpaImput}/>
+                                <Form.Control type="number" className={Classes.SpaImput}/>
                                     <InputGroup.Text>Spa</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spd}>
                                 <InputGroup onBlur={statsSpdHandler}>
-                                <Form.Control className={Classes.SpdImput}/>
+                                <Form.Control type="number" className={Classes.SpdImput}/>
                                     <InputGroup.Text>Spd</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Speed}>
                                 <InputGroup onBlur={statsSpeedHandler}>
-                                    <Form.Control className={Classes.SpeedImput}/>
+                                    <Form.Control type="number" className={Classes.SpeedImput}/>
                                     <InputGroup.Text>Speed</InputGroup.Text>
                                 </InputGroup>
                             </div>

@@ -63,8 +63,6 @@ const Login = (props) => {
         }
     })
     
-    const emailValidation = !emailIsValid ? `${Classes.formEmail}` : `${Classes.formEmail} ${Classes.invalid}`
-
         return(
 
             (props.isLoading)?
@@ -76,7 +74,7 @@ const Login = (props) => {
                         <div className={Classes.FormLogin}>
                             <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
                             <div className={Classes.InputContainer}>
-                                <Form.Group className={emailValidation} controlId="formEmail">
+                                <Form.Group className={Classes.formEmail} controlId="formEmail">
                                     <Form.Label className={Classes.Email}>Email</Form.Label>
                                     <Form.Control 
                                         className={Classes.SubmitEmail}
