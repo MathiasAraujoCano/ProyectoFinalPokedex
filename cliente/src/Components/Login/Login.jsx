@@ -38,13 +38,14 @@ const Login = (props) => {
         }
         else {
             setPasswordIsValid(true)
+            setPassword(a)
         }
 
     }
 
     const submitHandler = (event => {
         event.preventDefault()
-        console.log(props.hasError)
+        //console.log(props.hasError)
 
         if (!emailIsValid || !passwordIsValid){
             console.log("error en inputs")
@@ -69,7 +70,7 @@ const Login = (props) => {
             <LoadingPage/>
                 : 
                 <>
-            <Form className={Classes.MainContainer}>
+            <Form className={Classes.MainContainer}  onSubmit={submitHandler}>
                     <img className={Classes.LogoLogin} src="Materials\LogoLogin.png" alt="" />            
                         <div className={Classes.FormLogin}>
                             <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
@@ -91,13 +92,13 @@ const Login = (props) => {
                                     className={Classes.SubmitPassword}
                                         type="password" 
                                         placeholder="Ingresa tu Contraseña"
-                                        onBlur={passwordHandler}
+                                        onChange={passwordHandler}
                                         value={password}
                                     />
                                 </Form.Group>
                             </div>
                         {props.hasError && <p>{props.hasError}</p>}
-                        <Button className={Classes.LoginIniciar} type="submit" onClick={submitHandler}>
+                        <Button className={Classes.LoginIniciar} type="submit">
                             Iniciar Sesión
                         </Button>
                         <br/>

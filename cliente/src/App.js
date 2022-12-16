@@ -80,6 +80,7 @@ const getUser = (email, password) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ email, password })
   }
+  console.log("haciendo login")
   fetch('http://localhost:8001/auth/login', requestOption)
   .then(response => response.json())
   .then(data => {
@@ -87,7 +88,7 @@ const getUser = (email, password) => {
     setUserLogin(data)
     if (data.token) {
       setUserIsValid(true)
-    } else if (data.message) {
+    } else {
       setHasError(data.message)
     }
     setIsLoading(false)
