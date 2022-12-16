@@ -36,7 +36,7 @@ const Register = (props) => {
 
     const takeEmailHandler = (event) => {
         let a = event.target.value
-        setEmail(a)
+        setEmail(a.toString())
     }
 
     const passwordHandler = (event) => {
