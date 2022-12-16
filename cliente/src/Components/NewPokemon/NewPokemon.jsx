@@ -43,12 +43,7 @@ const NewPokemon = (props) => {
     }
 
     const weightHandler = (e) => {
-        let a = e.target.value
-        if (!Number(a)){
-            return
-        }
-        console.log("el valor es: " + a.value)
-        setWeight(a)
+        setWeight(e.target.value)
    }
 
     const heightHandler = (e) => {
