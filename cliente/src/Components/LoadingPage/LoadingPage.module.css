@@ -1,0 +1,11 @@
+.MainContainer{
+    height: 100vh;
+    width: 103vw;
+    margin-left: -3%;
+    background-image: url("/public/Materials/LoadingPageFondo.jpeg");
+}
+.Img{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50%;
+}
