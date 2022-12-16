@@ -8,11 +8,10 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Login = (props) => {
 
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [emailIsValid, setEmailIsValid] = useState(false)
     const [passwordIsValid, setPasswordIsValid] = useState(false)
-    const [isTouched, setIsTouched] = useState(false)
 
     const emailHandler = (event) => {
         let a = event.target.value
@@ -21,13 +20,14 @@ const Login = (props) => {
             setEmailIsValid(false)
         }
         else {
-            setEmail(a)
+            //setEmail(a)
             setEmailIsValid(true)
         }
     }
 
-    const blurHandler = () => {
-        setIsTouched(true)
+    const takeEmailHandler = (event) => {
+        let a = event.target.value
+        setEmail(a)
     }
 
     const passwordHandler = (event) => {
@@ -43,10 +43,11 @@ const Login = (props) => {
 
     }
 
+
     const submitHandler = (event => {
         event.preventDefault()
         //console.log(props.hasError)
-
+        console.log(emailIsValid, passwordIsValid)
         if (!emailIsValid || !passwordIsValid){
             console.log("error en inputs")
             setEmail('')
@@ -62,7 +63,7 @@ const Login = (props) => {
         }
     })
     
-    const emailValidation = !emailIsValid && isTouched ? `${Classes.formEmail} ${Classes.invalid}` : `${Classes.formEmail}`
+    const emailValidation = !emailIsValid ? `${Classes.formEmail}` : `${Classes.formEmail} ${Classes.invalid}`
 
         return(
 
@@ -81,8 +82,8 @@ const Login = (props) => {
                                         className={Classes.SubmitEmail}
                                         type="email" 
                                         placeholder="Ingresa tu Email" 
-                                        onChange={emailHandler} 
-                                        onBlur={blurHandler}
+                                        onChange={takeEmailHandler}
+                                        onBlur={emailHandler} 
                                         value={email}
                                     />
                                 </Form.Group>

@@ -9,27 +9,70 @@ const Register = (props) => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [nameIsValid, setNameIsValid] = useState(false)
+    const [emailIsValid, setEmailIsValid] = useState(false)
+    const [passwordIsValid, setPasswordIsValid] = useState(false)
 
     const nameHandler = (event) => {
-        setName(event.target.value)
+        let a = event.target.value
+        if (a.length === 0) {
+            console.log("El usuario no puede estar vacio")
+            setNameIsValid(false)
+        }
+        setNameIsValid(true)
+        setName(a)
     }
 
     const emailHandler = (event) => {
-        setEmail(event.target.value)
+        let a = event.target.value
+        if (!a.includes('@') || a.length === 0) {
+            console.log("formato no correcto del mail")
+            setEmailIsValid(false)
+        }
+        else {
+            setEmail(a)
+            setEmailIsValid(true)
+        }
     }
 
     const passwordHandler = (event) => {
-        setPassword(event.target.value)
+        let a = event.target.value
+        if (a.length === 0) {
+            setPasswordIsValid(false)
+            console.log("contraseña vacia")
+        }
+        else {
+            setPasswordIsValid(true)
+            setPassword(a)
+        }
+
     }
 
-    const submitHandler = (event) => {
+    const submitHandler = (event => {
         event.preventDefault()
+        //console.log(props.hasError)
+        console.log(name)
+        console.log(email)
+        console.log(password)
 
-        props.register(name, email, password)
-        setName('')
-        setEmail('')
-        setPassword('')
-    }
+        if (!emailIsValid || !passwordIsValid || !nameIsValid){
+            console.log("error en inputs")
+            setEmail('')
+            setPassword('')
+            setName('')
+            setEmailIsValid(false)
+            setPasswordIsValid(false)
+            setNameIsValid(false)
+        } else {
+            props.register(name, email, password)
+            setName('')
+            setEmail('')
+            setPassword('')
+            setNameIsValid(false)
+            setEmailIsValid(false)
+            setPasswordIsValid(false)
+        }
+    })
 
         return(
            
