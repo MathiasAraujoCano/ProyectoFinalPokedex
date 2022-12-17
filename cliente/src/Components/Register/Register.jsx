@@ -54,9 +54,7 @@ const Register = (props) => {
 
     const submitHandler = (event => {
         event.preventDefault()
-        console.log(name)
-        console.log(email)
-        console.log(password)
+        console.log(props.hasError)
 
         if (!emailIsValid || !passwordIsValid || !nameIsValid){
             console.log("error en inputs")
@@ -116,6 +114,7 @@ const Register = (props) => {
                             />
                         </Form.Group>
                     </div>
+                    {props.hasError && <p className={Classes.Error}>{props.hasError}</p>}
                     <Button className={Classes.Register} type="submit">
                         Registrame
                     </Button>

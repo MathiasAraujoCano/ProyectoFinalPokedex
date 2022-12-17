@@ -110,7 +110,11 @@ const newUser = (name, email, password) => {
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      setUserRegister(data)
+      if (data.success) {
+        setUserRegister(data)
+      }else {
+        setHasError(data.message)
+      }
     })
     .catch((err => {
       console.log('Hubo un error con el register', err.message)
@@ -146,7 +150,7 @@ useEffect(()=>{
           }/>
           <Route path="/Register"
           element={
-            <Register register={newUser}/>
+            <Register register={newUser} hasError={hasError}/>
           }/>
         </Routes>
       </BrowserRouter>
