@@ -50,7 +50,7 @@ const ListOfPokemon = (props) => {
                 onChange={(e)=>setSearchText(e.target.value)}/>
             </div>
                 <div className="PokemonGrid">
-                <Link to={`/NewPokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
+                <Link to={`/new-pokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
                     <div className="NewPokemonButton">
                         <div>
                             <img className="NewPokemonImg" src="\Materials\NewPokemonLogo.jpg" alt="" />
