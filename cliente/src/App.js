@@ -35,12 +35,12 @@ function App() {
           "description": pkm.description,
           "moves": pkm.moves,
           "stats": [
-            {"key":"HP","value": pkm.stats[0]},
-            {"key":"Atk","value": pkm.stats[1]},
-            {"key":"Def","value": pkm.stats[2]},
-            {"key":"Spa","value": pkm.stats[3]},
-            {"key":"Spd","value": pkm.stats[4]},
-            {"key":"Speed","value": pkm.stats[5]}
+            {"key":"HP","value": pkm.HP},
+            {"key":"Atk","value": pkm.Atk},
+            {"key":"Def","value": pkm.Def},
+            {"key":"Spa","value": pkm.Spa},
+            {"key":"Spd","value": pkm.Spd},
+            {"key":"Speed","value": pkm.Speed}
           ]
   
         })
