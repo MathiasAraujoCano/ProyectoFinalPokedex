@@ -5,41 +5,41 @@ const Progress = (props) => {
 
     function generateColor(type) {
         switch (type) {
-            case 'electric':    return "#f9cf30"                        
+            case 'Electric':    return "#f9cf30"                        
       
-            case 'fire':    return "#f57d31"                        
+            case 'Fire':    return "#f57d31"                        
               
-            case 'psychic':    return "#fb5584"                        
+            case 'Psychic':    return "#fb5584"                        
               
-            case 'grass':    return "#74cb48"                        
+            case 'Grass':    return "#74cb48"                        
                       
-            case 'water':    return "#6493eb"                        
+            case 'Water':    return "#6493eb"                        
              
-            case 'poison':    return "#a43e9e"                        
+            case 'Poison':    return "#a43e9e"                        
                
-            case 'bug':    return "#a78723"                        
+            case 'Bug':    return "#a78723"                        
               
-            case 'flying':    return "#a891ec"                        
+            case 'Flying':    return "#a891ec"                        
                  
-            case 'steel':    return "#fb5584"                        
+            case 'Steel':    return "#fb5584"                        
               
-            case 'rock':    return "#b69e31"                        
+            case 'Rock':    return "#b69e31"                        
                        
-            case 'normal':    return "#aaa67f"                        
+            case 'Normal':    return "#aaa67f"                        
                
-            case 'ghost':    return "#70559b"                        
+            case 'Ghost':    return "#70559b"                        
                 
-            case 'type':    return "#242829"  
+            case 'Type':    return "#242829"  
             
-            case 'fighting': return "#c12239"
+            case 'Fighting': return "#c12239"
 
-            case 'ground': return "#dec16b"
+            case 'Ground': return "#dec16b"
 
-            case 'fairy': return "#e69eac"
+            case 'Fairy': return "#e69eac"
 
-            case 'ice': return "#9ad6df"
+            case 'Ice': return "#9ad6df"
 
-            case 'dragon' : return "#7037ff"
+            case 'Dragon' : return "#7037ff"
                  
             default:   
                 return ""                        

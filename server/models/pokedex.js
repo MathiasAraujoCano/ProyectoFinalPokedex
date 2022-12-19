@@ -14,14 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pokedex.init({
-    idPokemon: DataTypes.INTEGER,
+    idPokemon: DataTypes.STRING,
     name: DataTypes.STRING,
     type: DataTypes.ARRAY(DataTypes.STRING),
     weight: DataTypes.DECIMAL,
     height: DataTypes.DECIMAL,
     moves: DataTypes.ARRAY(DataTypes.STRING),
     description: DataTypes.STRING,
-    stats: DataTypes.ARRAY(DataTypes.INTEGER),
+    HP: DataTypes.INTEGER,
+    Atk: DataTypes.INTEGER,
+    Def: DataTypes.INTEGER,
+    Spa: DataTypes.INTEGER,
+    Spd: DataTypes.INTEGER,
+    Speed: DataTypes.INTEGER,
     image: DataTypes.STRING
   }, {
     sequelize,

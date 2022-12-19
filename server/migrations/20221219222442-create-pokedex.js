@@ -1,8 +1,5 @@
 'use strict';
-
-const { sequelize } = require('../models');
-
- @type {import('sequelize-cli').Migration} 
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Pokedexes', {
@@ -13,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       idPokemon: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       name: {
         type: Sequelize.STRING
@@ -33,8 +30,23 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      stats: {
-        type: Sequelize.ARRAY(Sequelize.INTEGER)
+      HP: {
+        type: Sequelize.INTEGER
+      },
+      Atk: {
+        type: Sequelize.INTEGER
+      },
+      Def: {
+        type: Sequelize.INTEGER
+      },
+      Spa: {
+        type: Sequelize.INTEGER
+      },
+      Spd: {
+        type: Sequelize.INTEGER
+      },
+      Speed: {
+        type: Sequelize.INTEGER
       },
       image: {
         type: Sequelize.STRING
