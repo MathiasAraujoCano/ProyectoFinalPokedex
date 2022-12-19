@@ -3,7 +3,7 @@ import Classes from "../Login/Login.module.css"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Login = (props) => {
@@ -12,6 +12,38 @@ const Login = (props) => {
     const [password, setPassword] = useState('')
     const [emailIsValid, setEmailIsValid] = useState(false)
     const [passwordIsValid, setPasswordIsValid] = useState(false)
+    const [userLogin, setUserLogin] = useState()
+    const [userIsValid, setUserIsValid] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [hasError, setHasError] = useState()
+    const navigate = useNavigate();
+
+            const getUser = (email, password) => {
+        setIsLoading(true)
+        const requestOption = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ email, password })
+        }
+        console.log("haciendo login")
+        fetch('http://localhost:8001/auth/login', requestOption)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            setUserLogin(data)
+            if (data.token) {
+            setUserIsValid(true)
+            navigate("/home")
+            } else {
+            setHasError(data.message)
+            }
+            setIsLoading(false)
+        })
+        .catch((err => {
+            console.log('Hubo un error con la petición del logeo' + err.message)
+            setIsLoading(false)
+        }))
+        }
 
     const emailHandler = (event) => {
         let a = event.target.value
@@ -54,7 +86,7 @@ const Login = (props) => {
             setEmailIsValid(false)
             setPasswordIsValid(false)
         } else {
-            props.login(email, password)
+            getUser(email, password)
             setEmail('')
             setPassword('')
             setEmailIsValid(false)

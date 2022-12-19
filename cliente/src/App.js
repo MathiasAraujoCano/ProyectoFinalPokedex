@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ListOfPokemon from './Components/Home Page/ListOfPokemon/ListOfPokemos'
 import CharactersPokemon from './Components/Detailed View/CharactersPokemon/CharactersPokemon';
 import Login from './Components/Login/Login';
-import {BrowserRouter, Routes, Route, } from 'react-router-dom';
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import NewPokemon from './Components/NewPokemon/NewPokemon';
 import Register from './Components/Register/Register';
 
@@ -17,6 +17,7 @@ function App() {
   const [userRegister, setUserRegister] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState()
+
 
   const getPkmn = () =>{
     let auxB = []
@@ -72,7 +73,7 @@ const insertPokemon = (idPokemon, name, type, weight, height, moves, description
 }
 
 
-const getUser = (email, password) => {
+/*const getUser = (email, password) => {
   setIsLoading(true)
   const requestOption = {
     method: 'POST',
@@ -87,6 +88,7 @@ const getUser = (email, password) => {
     setUserLogin(data)
     if (data.token) {
       setUserIsValid(true)
+      navigate("/home")
     } else {
       setHasError(data.message)
     }
@@ -96,7 +98,7 @@ const getUser = (email, password) => {
     console.log('Hubo un error con la petición del logeo' + err.message)
     setIsLoading(false)
   }))
-}
+} */
 
 
 const newUser = (name, email, password) => {
@@ -130,7 +132,7 @@ useEffect(()=>{
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/Home"
+          <Route path="/home"
           element={
             <ListOfPokemon
             getPokemon={availablePkmn}/>
@@ -142,13 +144,13 @@ useEffect(()=>{
           }/>
            <Route path="/"
           element={
-            <Login login={getUser} isLoading={isLoading} hasError={hasError}/>
+            <Login/>
           }/>
-          <Route path="/NewPokemon"
+          <Route path="/new-pokemon"
           element={
             <NewPokemon insertPokemon={insertPokemon}/>
           }/>
-          <Route path="/Register"
+          <Route path="/register"
           element={
             <Register register={newUser} hasError={hasError}/>
           }/>
