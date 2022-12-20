@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       idPokemon: {
-        type: Sequelize.STRING
+        type: Sequelize.BIGINT
       },
       name: {
         type: Sequelize.STRING

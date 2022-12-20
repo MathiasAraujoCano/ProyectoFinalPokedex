@@ -42,10 +42,10 @@ function App() {
             {"key":"Spd","value": pkm.Spd},
             {"key":"Speed","value": pkm.Speed}
           ]
-  
+          
         })
       })
-      
+
       console.log(data)
       setAvailablePkmn(auxB)
     })
@@ -55,11 +55,11 @@ function App() {
 }
 
 
-const insertPokemon = (idPokemon, name, type, weight, height, moves, description, stats, image) => {
+const insertPokemon = (idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image) => {
   const requestPokemon = {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, stats, image})
+    body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image})
   }
   fetch('http://localhost:8001/pkmn', requestPokemon)
   .then(response => response.json())

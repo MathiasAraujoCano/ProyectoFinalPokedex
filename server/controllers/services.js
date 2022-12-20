@@ -40,15 +40,22 @@ router.post('/pkmn',(req,res)=>{  //done post pokemon
         height: req.body.height,
         moves: req.body.moves,
         description: req.body.description,
-        stats: req.body.stats,
+        HP: req.body.hp,
+        Atk: req.body.atk,
+        Def: req.body.def,
+        Spa: req.body.spa,
+        Spd: req.body.spd,
+        Speed: req.body.speed,
         image: req.body.image
     }
+    console.log(poke)
     Pokemon.findOne({
         where:{
             idPokemon: poke.idPokemon
         }
     })
     .then((data) => {
+        console.log(data)
         if(data) {
             res.status(401).send({ message: "El Pokemon ya existe" })
         }

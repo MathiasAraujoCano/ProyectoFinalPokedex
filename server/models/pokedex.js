@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pokedex.init({
-    idPokemon: DataTypes.STRING,
+    idPokemon: DataTypes.BIGINT,
     name: DataTypes.STRING,
     type: DataTypes.ARRAY(DataTypes.STRING),
     weight: DataTypes.DECIMAL,

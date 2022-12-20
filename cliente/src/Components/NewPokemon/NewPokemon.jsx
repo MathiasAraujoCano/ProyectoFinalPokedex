@@ -16,16 +16,16 @@ const NewPokemon = (props) => {
     const [height, setHeight] = useState()
     const [moves, setMoves] = useState([])
     const [description, setDescription] = useState()
-    const [stats, setStats] = useState([
-        {name: "HP", value: null},
-        {name: "Atk", value: null},
-        {name: "Def", value:  null},
-        {name: "Spa", value: null},
-        {name: "Spd", value: null},
-        {name: "Speed", value: null}
-    ])
+    const [hp, setHp] = useState()
+    const [atk, setAtk] = useState()
+    const [def, setDef] = useState()
+    const [spa, setSpa] = useState()
+    const [spd, setSpd] = useState()
+    const [speed, setSpeed] = useState()
     const [image, setImage] = useState()
     const [idPokemon, setIdPokemon] = useState()
+    const [typeOneIsLoad, setTypeOneIsLoad] = useState(false)
+    const [movesOneIsLoad, setMovesOneIsLoad] = useState(false)
 
 
     const idPoke = () => {
@@ -38,6 +38,12 @@ const NewPokemon = (props) => {
     }
 
     const typeHandler = (e) => {
+        let t = e.target.value
+        setType(type => [...type, t])
+        setTypeOneIsLoad(true)
+    }
+
+    const typeHandler2 = (e) => {
         let t = e.target.value
         setType(type => [...type, t])
     }
@@ -53,64 +59,40 @@ const NewPokemon = (props) => {
     const movesHandler = (e) => {
         let m = e.target.value
         setMoves(moves => [...moves, m])
+        setMovesOneIsLoad(true)
+    }
+
+    const movesHandler2 = (e) => {
+        let m = e.target.value
+        setMoves(moves => [...moves, m])
     }
 
     const descriptionHandler = (e) => {
         setDescription(e.target.value)
     }
 
-    const statsHPHandler = (e) => {
-        let s = e.target.value
-        const arr = stats.filter((item) => item.name !== 'HP')
-        console.log(arr)
-        arr.push({name: "HP", value: s})
-        setStats(arr)
-        console.log(arr)
+    const hpHandler = (e) => {
+        setHp(e.target.value)
     }
 
-    const statsAtkHandler = (e) => {
-        let s = e.target.value
-        const arr = stats.filter((item) => item.name !== 'Atk')
-        console.log(arr)
-        arr.push({name: "Atk", value: s})
-        setStats(arr)
-        console.log(arr)
+    const atkHandler = (e) => {
+        setAtk(e.target.value)
     }
 
-    const statsDefHandler = (e) => {
-        let s = e.target.value
-        const arr = stats.filter((item) => item.name !== 'Def')
-        console.log(arr)
-        arr.push({name: "Def", value: s})
-        setStats(arr)
-        console.log(arr)
+    const defHandler = (e) => {
+        setDef(e.target.value)
     }
 
-    const statsSpaHandler = (e) => {
-        let s = e.target.value
-        const arr = stats.filter((item) => item.name !== 'Spa')
-        console.log(arr)
-        arr.push({name: "Spa", value: s})
-        setStats(arr)
-        console.log(arr)
+    const spaHandler = (e) => {
+        setSpa(e.target.value)
     }
 
-    const statsSpdHandler = (e) => {
-        let s = e.target.value
-        const arr = stats.filter((item) => item.name !== 'Spd')
-        console.log(arr)
-        arr.push({name: "Spd", value: s})
-        setStats(arr)
-        console.log(arr)
+    const spdHandler = (e) => {
+        setSpd(e.target.value)
     }
 
-    const statsSpeedHandler = (e) => {
-        let s = e.target.value
-        const arr = stats.filter((item) => item.name !== 'Speed')
-        console.log(arr)
-        arr.push({name: "Speed", value: s})
-        setStats(arr)
-        console.log(arr)
+    const speedHandler = (e) => {
+        setSpeed(e.target.value)
     }
 
     const imageHandler = (e) => {
@@ -120,13 +102,12 @@ const NewPokemon = (props) => {
     const submitHandler = (e) => {
         e.preventDefault()
         idPoke()
-        console.log(stats)
-        props.insertPokemon(idPokemon, name, type, weight, height, moves, description, stats, image)
+        props.insertPokemon(idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image)
     }
 
     return(
         <div className={Classes.MainContainer}>
-            <Form>
+            <Form onSubmit={submitHandler}>
                     <div className={Classes.Background}></div>
                     <Link to={`/home`} style={{ textDecoration: 'none' }}>                             
                         <img className={Classes.MainArrow} src="Materials\Arrow-left.png"  alt=""/>                     
@@ -143,90 +124,92 @@ const NewPokemon = (props) => {
                                     className={Classes.NameImput}
                                     aria-label="Nombre"
                                     aria-describedby="inputGroup-sizing-default"
+                                    required
                                     />
                                 </InputGroup>
                             </div>
                             <div className={Classes.Types}>
                             <p className={Classes.Tipos}>Tipos</p>
                                 <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select className={Classes.TypeImput} onChange={typeHandler}>
-                                        <option>Tipo</option>
-                                        <option value="electric">Electric</option>
-                                        <option value="fire">Fire</option>
-                                        <option value="psychic">Psychic</option>
-                                        <option value="grass">Grass</option>
-                                        <option value="water">Water</option>
-                                        <option value="poison">Poison</option>
-                                        <option value="bug">Bug</option>
-                                        <option value="flying">Flying</option>
-                                        <option value="steel">Steel</option>
-                                        <option value="rock">Rock</option>
-                                        <option value="normal">Normal</option>
-                                        <option value="ghost">Ghost</option>
-                                        <option value="type">Type</option>
-                                        <option value="fighting">Fighting</option>
-                                        <option value="ground">Ground</option>
-                                        <option value="fairy">Fairy</option>
-                                        <option value="ice">Ice</option>
-                                        <option value="dragon">Dragon</option>
+                                    <Form.Select className={Classes.TypeImput} onBlur={typeHandler} required>
+                                        <option></option>
+                                        <option value="Electric">Electric</option>
+                                        <option value="Fire">Fire</option>
+                                        <option value="Psychic">Psychic</option>
+                                        <option value="Grass">Grass</option>
+                                        <option value="Water">Water</option>
+                                        <option value="Poison">Poison</option>
+                                        <option value="Bug">Bug</option>
+                                        <option value="Flying">Flying</option>
+                                        <option value="Steel">Steel</option>
+                                        <option value="Rock">Rock</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Ghost">Ghost</option>
+                                        <option value="Type">Type</option>
+                                        <option value="Fighting">Fighting</option>
+                                        <option value="Ground">Ground</option>
+                                        <option value="Fairy">Fairy</option>
+                                        <option value="Ice">Ice</option>
+                                        <option value="Dragon">Dragon</option>
                                     </Form.Select>
                                 </FloatingLabel>
-                                <FloatingLabel controlId="floatingSelect">
-                                    <Form.Select className={Classes.Type2Imput} onChange={typeHandler}>
+                                {typeOneIsLoad && (<FloatingLabel controlId="floatingSelect">
+                                    <Form.Select className={Classes.Type2Imput} onBlur={typeHandler2}>
                                         <option>Tipo</option>
-                                        <option value="electric">Electric</option>
-                                        <option value="fire">Fire</option>
-                                        <option value="psychic">Psychic</option>
-                                        <option value="grass">Grass</option>
-                                        <option value="water">Water</option>
-                                        <option value="poison">Poison</option>
-                                        <option value="bug">Bug</option>
-                                        <option value="flying">Flying</option>
-                                        <option value="steel">Steel</option>
-                                        <option value="rock">Rock</option>
-                                        <option value="normal">Normal</option>
-                                        <option value="ghost">Ghost</option>
-                                        <option value="type">Type</option>
-                                        <option value="fighting">Fighting</option>
-                                        <option value="ground">Ground</option>
-                                        <option value="fairy">Fairy</option>
-                                        <option value="ice">Ice</option>
-                                        <option value="dragon">Dragon</option>
+                                        <option value="Electric">Electric</option>
+                                        <option value="Fire">Fire</option>
+                                        <option value="Psychic">Psychic</option>
+                                        <option value="Grass">Grass</option>
+                                        <option value="Water">Water</option>
+                                        <option value="Poison">Poison</option>
+                                        <option value="Bug">Bug</option>
+                                        <option value="Flying">Flying</option>
+                                        <option value="Steel">Steel</option>
+                                        <option value="Rock">Rock</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Ghost">Ghost</option>
+                                        <option value="Type">Type</option>
+                                        <option value="Fighting">Fighting</option>
+                                        <option value="Ground">Ground</option>
+                                        <option value="Fairy">Fairy</option>
+                                        <option value="Ice">Ice</option>
+                                        <option value="Dragon">Dragon</option>
                                     </Form.Select>
-                                </FloatingLabel>
+                                </FloatingLabel>)}
                             </div>
                             <div className={Classes.Image}>
                                 <p className={Classes.Imagen}>Imagen</p>
                                 <Form.Group controlId="formFile" className="mb-3">
-                                    <Form.Control type="text" className={Classes.ImageImput} onChange={imageHandler}/>
+                                    <Form.Control type="text" className={Classes.ImageImput} onChange={imageHandler} required/>
                                 </Form.Group>
                             </div>
                             <div className={Classes.Weight}>
                                 <p className={Classes.Peso}>Peso</p>
                                 <InputGroup >
-                                    <Form.Control type="number" className={Classes.WeightImput} onChange={weightHandler}/>
+                                    <Form.Control type="number" className={Classes.WeightImput} onChange={weightHandler} required/>
                                     <InputGroup.Text>Kg</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Height}>
                                 <p className={Classes.Altura}>Altura</p>
                                 <InputGroup onChange={heightHandler}>
-                                    <Form.Control type="number" className={Classes.HeightImput}/>
+                                    <Form.Control type="number" className={Classes.HeightImput} required/>
                                     <InputGroup.Text>Mts</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Moves}>
                                 <p className={Classes.Movimientos}>Movimientos</p>
-                                <InputGroup className="mb-3" onChange={movesHandler}>
+                                <InputGroup className="mb-3" onBlur={movesHandler}>
                                     <InputGroup.Text id="inputGroup-sizing-default" >
                                     </InputGroup.Text>
                                     <Form.Control
                                     aria-label="Nombre"
                                     aria-describedby="inputGroup-sizing-default"
                                     className={Classes.MoveImput}
+                                    required
                                     />
                                 </InputGroup>
-                                <InputGroup className="mb-3" onChange={movesHandler}>
+                                {movesOneIsLoad && (<InputGroup className="mb-3" onBlur={movesHandler2}>
                                     <InputGroup.Text id="inputGroup-sizing-default" >
                                     </InputGroup.Text>
                                     <Form.Control
@@ -234,12 +217,12 @@ const NewPokemon = (props) => {
                                     aria-describedby="inputGroup-sizing-default"
                                     className={Classes.Move2Imput}
                                     />
-                                </InputGroup>
+                                </InputGroup>)}
                             </div>
                             <div className={Classes.Description}>
                                 <p className={Classes.Descripcion}>Descripción</p>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3} className={Classes.DescriptionImput} onChange={descriptionHandler} />
+                                    <Form.Control as="textarea" rows={3} className={Classes.DescriptionImput} onChange={descriptionHandler} required/>
                                 </Form.Group>
                             </div>
                         </div>
@@ -247,43 +230,43 @@ const NewPokemon = (props) => {
                         <div className={Classes.StatsContainer}>
                             <div className={Classes.Hp}>
                                 <InputGroup >
-                                <Form.Control type="number" className={Classes.HpImput} onBlur={statsHPHandler}/>
+                                <Form.Control type="number" className={Classes.HpImput} onBlur={hpHandler} required/>
                                     <InputGroup.Text>Hp</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Atk}>
                                 <InputGroup >
-                                <Form.Control type="number" className={Classes.AtkImput} onBlur={statsAtkHandler}/>
+                                <Form.Control type="number" className={Classes.AtkImput} onBlur={atkHandler} required/>
                                     <InputGroup.Text>Atk</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Def}>
                                 <InputGroup>
-                                <Form.Control type="number" className={Classes.DefImput} onBlur={statsDefHandler}/>
+                                <Form.Control type="number" className={Classes.DefImput} onBlur={defHandler} required/>
                                     <InputGroup.Text>Def</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spa}>
                                 <InputGroup>
-                                <Form.Control type="number" className={Classes.SpaImput} onBlur={statsSpaHandler}/>
+                                <Form.Control type="number" className={Classes.SpaImput} onBlur={spaHandler} required/>
                                     <InputGroup.Text>Spa</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Spd}>
                                 <InputGroup >
-                                <Form.Control type="number" className={Classes.SpdImput} onBlur={statsSpdHandler}/>
+                                <Form.Control type="number" className={Classes.SpdImput} onBlur={spdHandler} required/>
                                     <InputGroup.Text>Spd</InputGroup.Text>
                                 </InputGroup>
                             </div>
                             <div className={Classes.Speed}>
                                 <InputGroup >
-                                    <Form.Control type="number" className={Classes.SpeedImput} onBlur={statsSpeedHandler}/>
+                                    <Form.Control type="number" className={Classes.SpeedImput} onBlur={speedHandler} required/>
                                     <InputGroup.Text>Speed</InputGroup.Text>
                                 </InputGroup>
                             </div>
                         </div>
                         <div className={Classes.Button}>
-                            <Button variant="primary" type="submit" className={Classes.ButtonImput} onClick={submitHandler}>
+                            <Button variant="primary" type="submit" className={Classes.ButtonImput}>
                                 Crear!
                             </Button>
                         </div>
