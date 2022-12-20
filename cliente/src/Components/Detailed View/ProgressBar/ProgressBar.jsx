@@ -21,7 +21,7 @@ const Progress = (props) => {
               
             case 'Flying':    return "#a891ec"                        
                  
-            case 'Steel':    return "#fb5584"                        
+            case 'Steel':    return "#b7b9d0"                        
               
             case 'Rock':    return "#b69e31"                        
                        
