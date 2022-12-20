@@ -5,7 +5,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 
 const NewPokemon = (props) => {
@@ -29,7 +29,7 @@ const NewPokemon = (props) => {
     const [movesOneIsLoad, setMovesOneIsLoad] = useState(false)
     const [newInsertPokemon, setNewInsertPokemon] = useState()
     const [hasError, setHasError] = useState()
-
+    const navigate = useNavigate();
 
     const insertPokemon = (idPokemon, name, type, weight, height, moves, description, stats, image) => {
         const requestPokemon = {
@@ -42,6 +42,7 @@ const NewPokemon = (props) => {
         .then(data => {
           console.log(data)
           setNewInsertPokemon(data)
+          navigate("/")
         })
         .catch((err) => {
           console.log('Error en petición Fetch del new Pokemon')

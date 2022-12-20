@@ -54,12 +54,6 @@ function App() {
     })
 }
 
-
-
-
-
-
-
 useEffect(()=>{
   getPkmn()
 },[])
