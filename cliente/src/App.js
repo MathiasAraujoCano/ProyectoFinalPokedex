@@ -42,10 +42,10 @@ function App() {
             {"key":"Spd","value": pkm.Spd},
             {"key":"Speed","value": pkm.Speed}
           ]
-          
+  
         })
       })
-
+      
       console.log(data)
       setAvailablePkmn(auxB)
     })
@@ -55,73 +55,9 @@ function App() {
 }
 
 
-const insertPokemon = (idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image) => {
-  const requestPokemon = {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image})
-  }
-  fetch('http://localhost:8001/pkmn', requestPokemon)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    setNewInsertPokemon(data)
-  })
-  .catch((err) => {
-    console.log('Error en petición Fetch del new Pokemon')
-  })
-}
 
 
-/*const getUser = (email, password) => {
-  setIsLoading(true)
-  const requestOption = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ email, password })
-  }
-  console.log("haciendo login")
-  fetch('http://localhost:8001/auth/login', requestOption)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    setUserLogin(data)
-    if (data.token) {
-      setUserIsValid(true)
-      navigate("/home")
-    } else {
-      setHasError(data.message)
-    }
-    setIsLoading(false)
-  })
-  .catch((err => {
-    console.log('Hubo un error con la petición del logeo' + err.message)
-    setIsLoading(false)
-  }))
-} */
 
-
-const newUser = (name, email, password) => {
-    const requestOption = {
-      method: 'POST',
-      headers: {'Content-Type' : 'application/json' },
-      body: JSON.stringify({ name, email, password })
-    }
-    console.log(requestOption)
-    fetch('http://localhost:8001/auth/register', requestOption)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      if (data.success) {
-        setUserRegister(data)
-      }else {
-        setHasError(data.message)
-      }
-    })
-    .catch((err => {
-      console.log('Hubo un error con el register', err.message)
-    }))
-}
 
 
 useEffect(()=>{
@@ -148,11 +84,11 @@ useEffect(()=>{
           }/>
           <Route path="/new-pokemon"
           element={
-            <NewPokemon insertPokemon={insertPokemon}/>
+            <NewPokemon/>
           }/>
           <Route path="/register"
           element={
-            <Register register={newUser} hasError={hasError}/>
+            <Register/>
           }/>
         </Routes>
       </BrowserRouter>

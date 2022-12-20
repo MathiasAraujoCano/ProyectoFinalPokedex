@@ -3,6 +3,8 @@ import Classes from "../Register/Register.module.css"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Register = (props) => {
 
@@ -12,6 +14,36 @@ const Register = (props) => {
     const [nameIsValid, setNameIsValid] = useState(false)
     const [emailIsValid, setEmailIsValid] = useState(false)
     const [passwordIsValid, setPasswordIsValid] = useState(false)
+    const [userRegister, setUserRegister] = useState()
+    const [isLoading, setIsLoading] = useState(false)
+    const [hasError, setHasError] = useState()
+    const navigate = useNavigate();
+
+    const newUser = (name, email, password) => {
+        setIsLoading(true)
+        const requestOption = {
+          method: 'POST',
+          headers: {'Content-Type' : 'application/json' },
+          body: JSON.stringify({ name, email, password })
+        }
+        console.log(requestOption)
+        fetch('http://localhost:8001/auth/register', requestOption)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.success) {
+            setUserRegister(data)
+            navigate("/")
+          }else {
+            setHasError(data.message)
+          }
+          setIsLoading(false)
+        })
+        .catch((err => {
+          console.log('Hubo un error con el register', err.message)
+          setIsLoading(false)
+        }))
+    }
 
     const nameHandler = (event) => {
         let a = event.target.value
@@ -65,7 +97,7 @@ const Register = (props) => {
             setPasswordIsValid(false)
             setNameIsValid(false)
         } else {
-            props.register(name, email, password)
+            newUser(name, email, password)
             setName('')
             setEmail('')
             setPassword('')
@@ -75,8 +107,10 @@ const Register = (props) => {
         }
     })
 
-        return(
-           
+        return(     
+            (props.isLoading)?
+                <LoadingPage/>
+                : 
             <Form className={Classes.MainContainer} onSubmit={submitHandler}>
                 <img className={Classes.LogoRegister} src="Materials\LogoLogin.png" alt="" />                     
                     <div className={Classes.FormRegister}>

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 const NewPokemon = (props) => {
 
+
     const [name, setName] = useState()
     const [type, setType] = useState([])
     const [weight, setWeight] = useState()
@@ -26,7 +27,26 @@ const NewPokemon = (props) => {
     const [idPokemon, setIdPokemon] = useState()
     const [typeOneIsLoad, setTypeOneIsLoad] = useState(false)
     const [movesOneIsLoad, setMovesOneIsLoad] = useState(false)
+    const [newInsertPokemon, setNewInsertPokemon] = useState()
+    const [hasError, setHasError] = useState()
 
+
+    const insertPokemon = (idPokemon, name, type, weight, height, moves, description, stats, image) => {
+        const requestPokemon = {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, stats, image})
+        }
+        fetch('http://localhost:8001/pkmn', requestPokemon)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          setNewInsertPokemon(data)
+        })
+        .catch((err) => {
+          console.log('Error en petición Fetch del new Pokemon')
+        })
+      }
 
     const idPoke = () => {
         let id = Math.floor(Math.random()*(3000 - 1000)) + 1500
@@ -102,7 +122,7 @@ const NewPokemon = (props) => {
     const submitHandler = (e) => {
         e.preventDefault()
         idPoke()
-        props.insertPokemon(idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image)
+        insertPokemon(idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image)
     }
 
     return(

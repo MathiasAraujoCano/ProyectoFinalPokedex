@@ -99,8 +99,7 @@ const Login = (props) => {
             (props.isLoading)?
             <LoadingPage/>
                 : 
-                <>
-            <Form className={Classes.MainContainer}  onSubmit={submitHandler}>
+                <Form className={Classes.MainContainer}  onSubmit={submitHandler}>
                     <img className={Classes.LogoLogin} src="Materials\LogoLogin.png" alt="" />            
                         <div className={Classes.FormLogin}>
                             <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
@@ -141,7 +140,6 @@ const Login = (props) => {
                         </div>
                         <img className={Classes.Gif} src="\Materials\PikachuGif.gif" alt="" />
             </Form>
-            </>
     )
 }
 
