@@ -126,7 +126,7 @@ const Login = (props) => {
                                     />
                                 </Form.Group>
                             </div>
-                        {props.hasError && <p className={Classes.Error}>{props.hasError}</p>}
+                        {hasError && <p className={Classes.Error}>{hasError}</p>}
                         <Button className={Classes.LoginIniciar} type="submit">
                             Iniciar Sesión
                         </Button>

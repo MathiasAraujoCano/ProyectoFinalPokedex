@@ -148,7 +148,7 @@ const Register = (props) => {
                             />
                         </Form.Group>
                     </div>
-                    {props.hasError && <p className={Classes.Error}>{props.hasError}</p>}
+                    {hasError && <p className={Classes.Error}>{hasError}</p>}
                     <Button className={Classes.Register} type="submit">
                         Registrame
                     </Button>
