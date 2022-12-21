@@ -6,7 +6,6 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
-import Modal from "./Modal";
 
 
 const NewPokemon = () => {
