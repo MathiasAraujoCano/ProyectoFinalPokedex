@@ -30,6 +30,9 @@ const ListOfPokemon = (props) => {
     return(
         <div id="MainPage">
             <div className="Title">
+                <div className="UserLogo">
+                    <img className="UserImg" src="\Materials\user.jpeg" alt="" />
+                </div>
                 <div className="Logo">
                     <img className="Pokeball" src="Materials/Pokeball.png" alt=""/>
                     <span className="Name">Pokédex</span>
