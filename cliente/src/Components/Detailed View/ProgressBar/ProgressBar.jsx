@@ -2,6 +2,7 @@ import React from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 
 const Progress = (props) => {
+    console.log(props.pokemon)
 
     function generateColor(type) {
         switch (type) {

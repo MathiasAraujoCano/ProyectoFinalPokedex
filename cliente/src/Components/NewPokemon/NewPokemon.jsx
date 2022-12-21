@@ -31,18 +31,18 @@ const NewPokemon = (props) => {
     const [hasError, setHasError] = useState()
     const navigate = useNavigate();
 
-    const insertPokemon = (idPokemon, name, type, weight, height, moves, description, stats, image) => {
+    const insertPokemon = (idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image) => {
         const requestPokemon = {
           method: 'POST',
           headers: {'Content-Type':'application/json'},
-          body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, stats, image})
+          body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image})
         }
         fetch('http://localhost:8001/pkmn', requestPokemon)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           setNewInsertPokemon(data)
-          navigate("/")
+          navigate("/home")
         })
         .catch((err) => {
           console.log('Error en petición Fetch del new Pokemon')
@@ -50,7 +50,7 @@ const NewPokemon = (props) => {
       }
 
     const idPoke = () => {
-        let id = Math.floor(Math.random()*(3000 - 1000)) + 1500
+        let id = Math.floor(Math.random()*(1000)) + 1500
         setIdPokemon(id)
     }
 
@@ -122,6 +122,7 @@ const NewPokemon = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
+        console.log(hp, atk, def, spa, spd, speed)
         idPoke()
         insertPokemon(idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image)
     }
@@ -201,7 +202,7 @@ const NewPokemon = (props) => {
                             <div className={Classes.Image}>
                                 <p className={Classes.Imagen}>Imagen</p>
                                 <Form.Group controlId="formFile" className="mb-3">
-                                    <Form.Control type="text" className={Classes.ImageImput} onChange={imageHandler} required/>
+                                    <Form.Control type="url" className={Classes.ImageImput} onChange={imageHandler} required/>
                                 </Form.Group>
                             </div>
                             <div className={Classes.Weight}>
