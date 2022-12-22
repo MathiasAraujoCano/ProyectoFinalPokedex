@@ -9,7 +9,7 @@ import Register from './Components/Register/Register';
 
 function App() {
   const [availablePkmn, setAvailablePkmn] = useState([])
-
+  const [isLogged, setIsLogged] = useState(false)
 
   const getPkmn = () =>{
     let auxB = []
@@ -46,6 +46,10 @@ function App() {
     })
 }
 
+const loggedHandler = () => {
+  setIsLogged(true)
+}
+
 useEffect(()=>{
   getPkmn()
 },[])
@@ -57,7 +61,8 @@ useEffect(()=>{
           <Route path="/home"
           element={
             <ListOfPokemon
-            getPokemon={availablePkmn}/>
+            getPokemon={availablePkmn}
+            isLogged={isLogged}/>
           }/>
           <Route path="/:id"
           element={
@@ -66,7 +71,7 @@ useEffect(()=>{
           }/>
            <Route path="/"
           element={
-            <Login/>
+            <Login isLogged={loggedHandler} />
           }/>
           <Route path="/new-pokemon"
           element={

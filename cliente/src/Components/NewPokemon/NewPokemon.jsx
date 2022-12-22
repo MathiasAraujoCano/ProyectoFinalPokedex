@@ -55,6 +55,8 @@ const NewPokemon = () => {
     }
 
     const nameHandler = (e) => {
+        let inputName = e.target.value
+        e.target.value = ToUpper(inputName.toLowerCase())
         setName(e.target.value)
     }
 
@@ -78,17 +80,21 @@ const NewPokemon = () => {
     }
 
     const movesHandler = (e) => {
-        let m = e.target.value
-        setMoves(moves => [...moves, m])
+        let inputMove = e.target.value
+        e.target.value = ToUpper(inputMove.toLowerCase())
+        setMoves(moves => [...moves, inputMove])
         setMovesOneIsLoad(true)
     }
 
     const movesHandler2 = (e) => {
-        let m = e.target.value
-        setMoves(moves => [...moves, m])
+        let inputMove = e.target.value
+        e.target.value = ToUpper(inputMove.toLowerCase())
+        setMoves(moves => [...moves, inputMove])
     }
 
     const descriptionHandler = (e) => {
+        let inputDescription = e.target.value
+        e.target.value = ToUpper(inputDescription.toLowerCase())
         setDescription(e.target.value)
     }
 
@@ -120,6 +126,10 @@ const NewPokemon = () => {
         setImage(e.target.value)
     }
 
+    const ToUpper = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1)
+    }
+
     const submitHandler = (e) => {
         e.preventDefault()
         idPoke()
@@ -139,7 +149,7 @@ const NewPokemon = () => {
                             <div className={Classes.TopContainer}>
                                 <div className={Classes.Name}>
                                     <p className={Classes.Nombre}>Nombre</p>
-                                    <InputGroup className="mb-3" onChange={nameHandler}>
+                                    <InputGroup className="mb-3" onBlur={nameHandler}>
                                         <InputGroup.Text id="inputGroup-sizing-default" >
                                         </InputGroup.Text>
                                         <Form.Control
@@ -244,7 +254,7 @@ const NewPokemon = () => {
                                 <div className={Classes.Description}>
                                     <p className={Classes.Descripcion}>Descripción</p>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                        <Form.Control as="textarea" rows={3} className={Classes.DescriptionImput} onChange={descriptionHandler} required/>
+                                        <Form.Control as="textarea" rows={3} className={Classes.DescriptionImput} onBlur={descriptionHandler} required/>
                                     </Form.Group>
                                 </div>
                             </div>

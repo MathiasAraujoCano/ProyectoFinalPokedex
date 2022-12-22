@@ -53,7 +53,7 @@ const ListOfPokemon = (props) => {
                 onChange={(e)=>setSearchText(e.target.value)}/>
             </div>
                 <div className="PokemonGrid">
-                <Link to={`/new-pokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
+                {props.isLogged && (<Link to={`/new-pokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
                     <div className="NewPokemonButton">
                         <div>
                             <img className="NewPokemonImg" src="\Materials\NewPokemonLogo.jpg" alt="" />
@@ -62,7 +62,7 @@ const ListOfPokemon = (props) => {
                             Agregar
                         </div>
                     </div>
-                </Link>
+                </Link>)}
                 {filteredPokemon.map((pokemon, key)=>
                                                 <SimplePokemon 
                                                 pokemon={pokemon}

@@ -9,6 +9,7 @@ const CharactersPokemon = (props) => {
 
     const previousPokemon = props.list[props.list.findIndex((pokemon)=>pokemon.id==id)-1]
     const nextPokemon = props.list[props.list.findIndex((pokemon)=>pokemon.id==id)+1]
+    
 
     useEffect(()=> {
         setPokemon(props.list.find((pokemon)=>pokemon.id==id))
@@ -62,7 +63,7 @@ const CharactersPokemon = (props) => {
                         <div className="weightDiv">
                             <div className="weightContainer">
                                 <img className="weight" src="/Materials/Weight.png" alt=""/>
-                                {String(pokemon.weight/100)} Kg
+                                {String(pokemon.weight/10)} Kg
                             </div>
                             <div className="WeightLable">Weight</div>
                         </div>

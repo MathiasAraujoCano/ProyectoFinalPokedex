@@ -34,6 +34,7 @@ const Login = (props) => {
             if (data.token) {
             setUserIsValid(true)
             navigate("/home")
+            props.isLogged()
             } else {
             setHasError(data.message)
             }
