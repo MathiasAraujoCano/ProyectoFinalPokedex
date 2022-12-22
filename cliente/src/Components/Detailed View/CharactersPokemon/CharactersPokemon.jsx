@@ -63,14 +63,14 @@ const CharactersPokemon = (props) => {
                         <div className="weightDiv">
                             <div className="weightContainer">
                                 <img className="weight" src="/Materials/Weight.png" alt=""/>
-                                {String(pokemon.weight/10)} Kg
+                                {String(pokemon.weight)} Kg
                             </div>
                             <div className="WeightLable">Weight</div>
                         </div>
                         <div className="heightDiv">
                             <div className="heightContainer">
                                 <img className="height" src="/Materials/Height.png" alt=""/>
-                                {String(pokemon.height/10)} Mts
+                                {String(pokemon.height)} Mts
                             </div>
                             <div className="HeightLable">Height</div>
                         </div>

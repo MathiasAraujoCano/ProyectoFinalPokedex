@@ -195,8 +195,8 @@ body{
   margin-bottom: 20%;
 }
 .Character{
-  height: 100vh;
-  width: auto;
+  height: 105vh;
+  width: 109vw;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 25% 65%;
