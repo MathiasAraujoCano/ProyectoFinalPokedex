@@ -8,15 +8,7 @@ import NewPokemon from './Components/NewPokemon/NewPokemon';
 import Register from './Components/Register/Register';
 
 function App() {
-
-  const [getPokemon, setGetPokemon] = useState ([])
   const [availablePkmn, setAvailablePkmn] = useState([])
-  const [userLogin, setUserLogin] = useState()
-  const [userIsValid, setUserIsValid] = useState(false)
-  const [newInsertPokemon, setNewInsertPokemon] = useState()
-  const [userRegister, setUserRegister] = useState()
-  const [isLoading, setIsLoading] = useState(false)
-  const [hasError, setHasError] = useState()
 
 
   const getPkmn = () =>{

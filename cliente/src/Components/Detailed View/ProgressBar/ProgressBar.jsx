@@ -49,11 +49,11 @@ const Progress = (props) => {
     }
         return(
             
-                <div className="Divstats">
+                <>
                 {
                     props.pokemon.stats.map((stat,key)=>{
                         return(
-                            <div key={key} >
+                            <div key={key} className="RowStats">
                                 <div className="StatsName">
                                     {stat.key}
                                 </div>
@@ -72,7 +72,7 @@ const Progress = (props) => {
                         )
                     })
                 }
-                </div>         
+                </>         
         )
     }
   export default Progress;

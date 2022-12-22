@@ -37,7 +37,10 @@ const Register = (props) => {
           }else {
             setHasError(data.message)
           }
-          setIsLoading(false)
+          setTimeout(() => {
+            setIsLoading(false);
+            console.log("Cargando")
+          }, 5000)
         })
         .catch((err => {
           console.log('Hubo un error con el register', err.message)

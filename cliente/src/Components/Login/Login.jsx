@@ -37,13 +37,17 @@ const Login = (props) => {
             } else {
             setHasError(data.message)
             }
-            setIsLoading(false)
+            setTimeout(() => {
+                setIsLoading(false);
+                console.log("Cargando")
+              }, 5000)
         })
         .catch((err => {
             console.log('Hubo un error con la petición del logeo' + err.message)
             setIsLoading(false)
         }))
         }
+
 
     const emailHandler = (event) => {
         let a = event.target.value
