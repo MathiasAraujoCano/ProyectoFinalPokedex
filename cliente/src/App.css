@@ -195,13 +195,12 @@ body{
   margin-bottom: 20%;
 }
 .Character{
-  height: 105vh;
-  width: 109vw;
+  height: 100vh;
+  width: 100vw;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 25% 65%;
   margin-left: -3%;
-
 }
 .Background{
   display: grid;
@@ -288,7 +287,8 @@ body{
   grid-template-rows: 10% 7% 8% 15% 15% 45%;
   background-color: white;
   border-radius: 5%;
-  margin: 0.5%;
+  margin-left: 1%;
+  margin-right: 2%;
   z-index: 1;
   height: 63vh;
 }
@@ -360,7 +360,6 @@ body{
 }
 .heightContainer{
   margin-bottom: 8%;
-  margin-left: 10%;
 }
 .movesDiv {
   grid-area: 4/3/5/4;
