@@ -28,7 +28,7 @@ const NewPokemon = () => {
     const [typeOneIsLoad, setTypeOneIsLoad] = useState(false)
     const [movesOneIsLoad, setMovesOneIsLoad] = useState(false)
     const [newInsertPokemon, setNewInsertPokemon] = useState()
-    const [hasError, setHasError] = useState()
+    const [isNew, setIsNew] = useState(false)
     const navigate = useNavigate();
 
     const insertPokemon = (idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image) => {
@@ -42,7 +42,8 @@ const NewPokemon = () => {
         .then(data => {
           console.log(data)
           setNewInsertPokemon(data)
-          navigate("/")
+          setIsNew(true)
+          //navigate("/")
         })
         .catch((err) => {
           console.log('Error en petición Fetch del new Pokemon')
@@ -139,7 +140,8 @@ const NewPokemon = () => {
     }
 
     return(
-        <React.Fragment>
+          <React.Fragment>
+            {isNew ? <div>POKÉMON ingresado con éxito</div> : (
             <div className={Classes.MainContainer}>
                 <Form onSubmit={submitHandler}>
                         <div className={Classes.Background}></div>
@@ -306,7 +308,7 @@ const NewPokemon = () => {
                             </div>
                         </div>
                 </Form>
-            </div>
+            </div>)}
         </React.Fragment>
 
 
