@@ -42,7 +42,7 @@ const NewPokemon = () => {
         .then(data => {
           console.log(data)
           setNewInsertPokemon(data)
-          navigate("/home")
+          navigate("/")
         })
         .catch((err) => {
           console.log('Error en petición Fetch del new Pokemon')
@@ -62,8 +62,10 @@ const NewPokemon = () => {
 
     const typeHandler = (e) => {
         let t = e.target.value
-        setType(type => [...type, t])
-        setTypeOneIsLoad(true)
+        if (t !== "") {
+            setType(type => [...type, t])
+            setTypeOneIsLoad(true)
+        }
     }
 
     const typeHandler2 = (e) => {
@@ -164,6 +166,7 @@ const NewPokemon = () => {
                                 <p className={Classes.Tipos}>Tipos</p>
                                     <FloatingLabel controlId="floatingSelect">
                                         <Form.Select className={Classes.TypeImput} onBlur={typeHandler} required>
+                                            <option></option>
                                             <option value="Electric">Electric</option>
                                             <option value="Fire">Fire</option>
                                             <option value="Psychic">Psychic</option>
