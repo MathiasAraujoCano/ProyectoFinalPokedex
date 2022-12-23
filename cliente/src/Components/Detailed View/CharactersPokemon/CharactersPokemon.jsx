@@ -76,7 +76,11 @@ const CharactersPokemon = (props) => {
                         </div>
                         <div className="movesDiv">
                             <div className="movesName">
-                                {pokemon.moves[0]} 
+                                {pokemon.moves.map((move)=>{
+                                    return (
+                                    <div>{move}</div>)
+                                })
+                            } 
                             </div>                        
                         <div className="MovesLable">Moves</div>
                         </div>
