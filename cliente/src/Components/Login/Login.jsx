@@ -31,15 +31,15 @@ const Login = (props) => {
             setUserLogin(data)
             if (data.token) {
             setUserIsValid(true)
-            navigate("/home")
+            setTimeout(() => {
+                setIsLoading(false);
+                navigate("/home")     // cual es la idea aca???
+              }, 1500)
+             
             props.isLogged()
             } else {
             setHasError(data.message)
             }
-            setTimeout(() => {
-                setIsLoading(false);
-                console.log("Cargando")     // cual es la idea aca???
-              }, 5000)
         })
         .catch((err => {
             console.log('Hubo un error con la petición del logeo' + err.message)
@@ -97,7 +97,7 @@ const Login = (props) => {
     
         return(
 
-            (props.isLoading)?
+            (isLoading)?
             <LoadingPage/>
                 : 
                 <Form className={Classes.MainContainer}  onSubmit={submitHandler}>
