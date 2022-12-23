@@ -42,7 +42,7 @@ const NewPokemon = () => {
         .then(data => {
           console.log(data)
           setNewInsertPokemon(data)
-          navigate("/")
+          navigate("/home")
         })
         .catch((err) => {
           console.log('Error en petición Fetch del new Pokemon')
