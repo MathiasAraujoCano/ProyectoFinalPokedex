@@ -164,7 +164,6 @@ const NewPokemon = () => {
                                 <p className={Classes.Tipos}>Tipos</p>
                                     <FloatingLabel controlId="floatingSelect">
                                         <Form.Select className={Classes.TypeImput} onBlur={typeHandler} required>
-                                            <option></option>
                                             <option value="Electric">Electric</option>
                                             <option value="Fire">Fire</option>
                                             <option value="Psychic">Psychic</option>
