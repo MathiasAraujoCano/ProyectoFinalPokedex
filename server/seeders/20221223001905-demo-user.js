@@ -10,6 +10,27 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
+      {
+      "name": "yael",
+      "email": "yaelcalcagno@gmail.com",
+      "password": bcrypt.hashSync('1234', bcrypt.genSaltSync(8)),
+      createdAt: new Date(),
+      updatedAt: new Date()
+      },
+      {
+        "name": "mathi",
+        "email": "mathiaraujo@gmail.com",
+        "password": bcrypt.hashSync('1234', bcrypt.genSaltSync(8)),
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        "name": "admin",
+        "email": "admin@admin.com",
+        "password": bcrypt.hashSync('1234', bcrypt.genSaltSync(8)),
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
       
       
   
