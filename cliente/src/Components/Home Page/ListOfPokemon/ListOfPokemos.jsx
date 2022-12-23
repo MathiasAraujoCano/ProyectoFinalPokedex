@@ -67,7 +67,8 @@ const ListOfPokemon = (props) => {
                                                 <SimplePokemon 
                                                 pokemon={pokemon}
                                                 key={key}
-                                                isLogged={props.isLogged}/>
+                                                isLogged={props.isLogged}
+                                                setReload={props.setReload}/>
                                                                                 
                 )}</div>
         </div>

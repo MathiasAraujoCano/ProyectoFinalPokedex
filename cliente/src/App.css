@@ -128,10 +128,12 @@ body{
   grid-area: 1/2/2/3;
   margin-left: -214%;
   margin-top: 8%;
+  z-index: 1000;
 }
 .DeleteImg{
   height: 16px;
   width: auto;
+  z-index: 1000;
 }
 .PokemonId{
   font-size: 85%;

@@ -10,6 +10,7 @@ import Register from './Components/Register/Register';
 function App() {
   const [availablePkmn, setAvailablePkmn] = useState([])
   const [isLogged, setIsLogged] = useState(false)
+  const [reload, setReload] = useState()
 
   const getPkmn = () =>{
     let auxB = []
@@ -52,7 +53,7 @@ const loggedHandler = () => {
 
 useEffect(()=>{
   getPkmn()
-},[])
+},[reload])
 
 
   return (
@@ -62,7 +63,8 @@ useEffect(()=>{
           element={
             <ListOfPokemon
             getPokemon={availablePkmn}
-            isLogged={isLogged}/>
+            isLogged={isLogged}
+            setReload={setReload}/>
           }/>
           <Route path="/:id"
           element={
@@ -75,7 +77,8 @@ useEffect(()=>{
           }/>
           <Route path="/new-pokemon"
           element={
-            <NewPokemon/>
+            <NewPokemon
+            setReload={setReload}/>
           }/>
           <Route path="/register"
           element={

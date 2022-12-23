@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
 
 
-const NewPokemon = () => {
+const NewPokemon = (props) => {
 
 
     const [name, setName] = useState()
@@ -43,7 +43,8 @@ const NewPokemon = () => {
           console.log(data)
           setNewInsertPokemon(data)
           setIsNew(true)
-          //navigate("/")
+          props.setReload(new Date().getTime())
+          navigate("/home")
         })
         .catch((err) => {
           console.log('Error en petición Fetch del new Pokemon')
