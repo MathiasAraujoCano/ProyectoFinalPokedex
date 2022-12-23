@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SimplePokemon = (props) => {
-    console.log(props.pokemon)
 
     return(
 

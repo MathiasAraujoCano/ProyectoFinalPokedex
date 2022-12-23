@@ -25,11 +25,9 @@ const Login = (props) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ email, password })
         }
-        console.log("haciendo login")
         fetch('http://localhost:8001/auth/login', requestOption)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             setUserLogin(data)
             if (data.token) {
             setUserIsValid(true)
@@ -40,7 +38,7 @@ const Login = (props) => {
             }
             setTimeout(() => {
                 setIsLoading(false);
-                console.log("Cargando")
+                console.log("Cargando")     // cual es la idea aca???
               }, 5000)
         })
         .catch((err => {
@@ -82,10 +80,8 @@ const Login = (props) => {
 
     const submitHandler = (event => {
         event.preventDefault()
-        //console.log(props.hasError)
-        console.log(emailIsValid, passwordIsValid)
+
         if (!emailIsValid || !passwordIsValid){
-            console.log("error en inputs")
             setEmail('')
             setPassword('')
             setEmailIsValid(false)
