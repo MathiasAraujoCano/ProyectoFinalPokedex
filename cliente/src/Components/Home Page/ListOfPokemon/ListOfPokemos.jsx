@@ -31,7 +31,7 @@ const ListOfPokemon = (props) => {
         <div id="MainPage">
             <div className="Title">
                 <div className="UserLogo">
-                    <img className="UserImg" src="\Materials\user.jpeg" alt="" />
+                    {props.isLogged && <img className="UserImg" src="\Materials\user.jpeg" alt="" />}
                 </div>
                 <div className="Logo">
                     <img className="Pokeball" src="Materials/Pokeball.png" alt=""/>
@@ -66,7 +66,8 @@ const ListOfPokemon = (props) => {
                 {filteredPokemon.map((pokemon, key)=>
                                                 <SimplePokemon 
                                                 pokemon={pokemon}
-                                                key={key}/>
+                                                key={key}
+                                                isLogged={props.isLogged}/>
                                                                                 
                 )}</div>
         </div>
