@@ -1,27 +1,11 @@
-/////*** USUARIOS ***\\\\\
+POKEDEX
+App hecha en React que colecciona Pokemones
 
-*** ADMIN **
-email: admin@admin.com
-password: 1234
+Instalación Server
+Ejecute los siguientes comandos para la creación del server. Debe estar ubicado en la carpeta server
 
-*** MATHIAS ***
-email: mathias.araujo2310@gmail.com
-password: 1234
-
-*** MAJO ***
-email: majoaraujopiedra@gmail.com
-password: 1234
-
-*** YAEL ***
-email: yaelcalcagno@gmail.com
-password: 1234
-
---------------------------------------------------
-
-/////*** COMANDOS ***\\\\\
-
-Crear en el pgAdmin la base de datos llamada "dbPokemon"
-Configurar config.js con los valores adecuados de acceso a su base de datos
+npm i                           => para instalar todas las dependencias del proyecto
+Configurar config.js con los valores adecuados de acceso
 {    development: {
     username: 'postgres',
     password: 'testing',
@@ -29,36 +13,22 @@ Configurar config.js con los valores adecuados de acceso a su base de datos
     host: 'localhost',
     dialect: 'postgres'
 }}
-npx sequelize-cli db:migrate    => para crear en el pgAdmin las tablas
+sequelize db:create             => para crear la base de datos 
+npx sequelize-cli db:migrate    => para crear las tablas en base de datos
 npx sequelize-cli db:seed:all   => para levantar nuestros datos demos de usuarios y pokemones 
 nodemon app.js                  => levantamos nuestro server
-npm start                       => levantamos nuestro react
+Instalación Cliente
+Ejecute los siguientes comandos para la creación del cliente. Debe estar ubicado en la carpeta cliente
 
---------------------------------------------------
+npm i                                   => para instalar todas las dependencias del proyecto
+npm install react-bootstrap bootstrap   => instala la libreria que usamos
+npm start                               => levantamos nuestro cliente
+Demo
+Para acceder a la demo debe ingresar al http://localhost:3000
 
-/////*** ROUTES ***\\\\\
+Usuario: admin@admin.com Password: 1234
 
-*** CONSEGUIR POKEMONES ***
-GET
-http://localhost8001/pkmn
-
-*** CONSEGUIR USUARIOS ***
-GET
-http://localhost8001/user
-
-*** AGREGAR POKEMONES ***
-POST
-http://localhost8001/pkmn
-
-*** CONSEGUIR UN POKEMON POR ID DEL POKEMON ***
-GET
-http://localhost8001/pkmn/id
-
-*** BORRAR UN POKEMON POR ID DEL POKEMON ***
-DELETE
-http://localhost8001/pkmn/id
-
----------------------------------------------------
-
-instalar libreria de boostrap
-npm install react-bootstrap bootstrap
+Authors
+Maria José Araujo
+Yael Calcagno
+Mathias Araujo
