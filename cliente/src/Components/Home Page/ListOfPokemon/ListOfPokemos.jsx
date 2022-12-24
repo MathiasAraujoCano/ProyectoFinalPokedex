@@ -39,7 +39,8 @@ const ListOfPokemon = (props) => {
         <div id="MainPage">
             <div className="Title">
                 <div className="UserLogo"  onClick={logout}>
-                    {localStorage.getItem('token') && <img className="UserImg" src="\Materials\user.jpeg" alt="" />}
+                    <p className="LogOutButton">Cerrar Sesión</p>
+                    {localStorage.getItem('token') && <img className="UserImg" src="\Materials\LogOut.png" alt="" />}
                 </div>
                 <div className="Logo">
                     <img className="Pokeball" src="Materials/Pokeball.png" alt=""/>

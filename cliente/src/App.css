@@ -35,6 +35,12 @@ body{
 .UserImg{
   height: 28px;
   width: auto;
+  margin-top: -112%;
+}
+.LogOutButton{
+  margin-left: -218%;
+  margin-top: 11%;
+  font-family: PoppinsRegular;
 }
 .Logo{
   display: grid;
@@ -83,7 +89,7 @@ body{
   width: auto;
   float: right;
   margin-right: 10%;
-  margin-top: 21%;
+  margin-top: 26%;
 }
 .Hashtag{
   display: grid;
@@ -91,7 +97,7 @@ body{
   height: 20%;
   width: auto;
   float: right;
-  margin-top: 19%;
+  margin-top: 24%;
 } 
 .searchDiv{
   display: grid;
