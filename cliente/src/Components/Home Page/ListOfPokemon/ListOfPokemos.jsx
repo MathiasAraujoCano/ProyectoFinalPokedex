@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import SimplePokemon from "../SimplePokemon/SimplePokemon";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ListOfPokemon = (props) => {
 
     const [searchText, setSearchText] = useState("")
     const [filteredPokemon, setFilteredPokemon] = useState(props.getPokemon)
     const [filterType, setFilterType] = useState("#")
+    const navigate = useNavigate()
 
     const handleFilter = () => {
         setFilterType((filterType==="#")?"AZ":"#")
@@ -20,6 +22,12 @@ const ListOfPokemon = (props) => {
         }
     }
 
+    
+    const logout = () => {
+        navigate('/')
+        localStorage.removeItem('token')
+    }
+
 
     useEffect (()=>{
         setFilteredPokemon(props.getPokemon.filter(element => element.name.toLowerCase().includes(searchText.toLowerCase())))
@@ -30,7 +38,7 @@ const ListOfPokemon = (props) => {
     return(
         <div id="MainPage">
             <div className="Title">
-                <div className="UserLogo">
+                <div className="UserLogo"  onClick={logout}>
                     {props.isLogged && <img className="UserImg" src="\Materials\user.jpeg" alt="" />}
                 </div>
                 <div className="Logo">
