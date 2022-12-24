@@ -109,7 +109,7 @@ const Login = (props) => {
                 <Form className={Classes.MainContainer}  onSubmit={submitHandler}>
                     <img className={Classes.LogoLogin} src="Materials\LogoLogin.png" alt="" />            
                         <div className={Classes.FormLogin}>
-                            <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
+                            <p className={Classes.WelcomeBanner}>¡Ingresá tus datos! </p>
                             <div className={Classes.InputContainer}>
                                 <Form.Group className={Classes.formEmail} controlId="formEmail">
                                     <Form.Label className={Classes.Email}>Email</Form.Label>
@@ -138,7 +138,7 @@ const Login = (props) => {
                             Iniciar Sesión
                         </Button>
                         <br/>
-                        <p className={Classes.RegisterNote}>Todavia no tienes una cuenta? Registrate!</p>              
+                        <p className={Classes.RegisterNote}>¿Todavia no tienes una cuenta? ¡Registrate!</p>              
                         <Link to={`/Register`} style={{ textDecoration: 'none' }}>              
                             <Button className={Classes.Registrarse} type="submit">
                                 Registrarse

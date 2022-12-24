@@ -149,7 +149,7 @@ const NewPokemon = (props) => {
             {isNew ? 
                 <div className={Classes.LoadingContainer}>
                     <img className={Classes.LoadingImg} src="\Materials\SquirtleGif.gif" alt="" />
-                    <p className={Classes.Loadingsuccesful}>creado con exito!</p>
+                    <p className={Classes.Loadingsuccesful}>¡Creado con exito!</p>
                 </div> : 
             ( !localStorage.getItem('token') ? 
                 <div className={Classes.ErrorContainer}>
@@ -165,7 +165,7 @@ const NewPokemon = (props) => {
                         <Link to={`/home`} style={{ textDecoration: 'none' }}>                             
                             <img className={Classes.MainArrow} src="Materials\Arrow-left.png"  alt=""/>                     
                         </Link>
-                        <div className={Classes.Header}>Crea tu Pokemon!</div>
+                        <div className={Classes.Header}>¡Crea tu Pokemon!</div>
                         <div className={Classes.Container}>
                             <div className={Classes.TopContainer}>
                                 <div className={Classes.Name}>
@@ -233,7 +233,7 @@ const NewPokemon = (props) => {
                                 <div className={Classes.Image}>
                                     <p className={Classes.Imagen}>Imagen</p>
                                     <Form.Group controlId="formFile" className="mb-3">
-                                        <Form.Control type="url" className={Classes.ImageImput} onChange={imageHandler} required/>
+                                        <Form.Control type="url" placeholder={"URL en formato PNG"}className={Classes.ImageImput} onChange={imageHandler} required/>
                                     </Form.Group>
                                 </div>
                                 <div className={Classes.Weight}>
@@ -320,7 +320,7 @@ const NewPokemon = (props) => {
                             </div>
                             <div className={Classes.Button}>
                                 <Button variant="primary" type="submit" className={Classes.ButtonImput}>
-                                    Crear!
+                                    ¡Crear!
                                 </Button>
                             </div>
                         </div>

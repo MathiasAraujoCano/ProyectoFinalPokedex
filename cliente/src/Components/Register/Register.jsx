@@ -116,7 +116,7 @@ const Register = (props) => {
             <Form className={Classes.MainContainer} onSubmit={submitHandler}>
                 <img className={Classes.LogoRegister} src="Materials\LogoLogin.png" alt="" />                     
                     <div className={Classes.FormRegister}>
-                    <p className={Classes.WelcomeBanner}>Ingresá tus datos! </p>
+                    <p className={Classes.WelcomeBanner}>¡Ingresá tus datos! </p>
                     <div className={Classes.InputContainer}>
                         <Form.Group className={Classes.formName} controlId="formNameRegister">
                             <Form.Label className={Classes.Name}>Nombre</Form.Label>
