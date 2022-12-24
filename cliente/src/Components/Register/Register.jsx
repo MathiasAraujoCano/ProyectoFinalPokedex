@@ -89,7 +89,6 @@ const Register = (props) => {
 
     const submitHandler = (event => {
         event.preventDefault()
-        console.log(props.hasError)
 
         if (!emailIsValid || !passwordIsValid || !nameIsValid){
             console.log("error en inputs")
