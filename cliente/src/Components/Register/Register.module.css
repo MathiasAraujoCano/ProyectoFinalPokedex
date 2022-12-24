@@ -91,5 +91,13 @@
     margin-top: -21%;
     margin-left: -2%;
 }
-  
+
+.Error{
+    text-align: center;
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 5%;
+    font-size: 15px;
+    font-family: 'PoppinsBold';
+}
   
