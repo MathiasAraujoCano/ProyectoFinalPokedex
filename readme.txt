@@ -25,6 +25,7 @@ npm install react-bootstrap bootstrap   => instala la libreria que usamos
 npm start                               => levantamos nuestro cliente
 Demo
 Para acceder a la demo debe ingresar al http://localhost:3000
+Para Iphone SE esta realizado
 
 Usuario: admin@admin.com Password: 1234
 

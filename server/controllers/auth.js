@@ -11,7 +11,7 @@ router.post('/login', async (req, res) => {
     const checkedUser = await User.findOne({ where: {email: req.body.email }})
 
     if (!checkedUser) {
-        return res.status(402).send({ message: 'Usuario no válido' })
+        return res.status(402).send({ message: 'Usuario no válido', status: '402' })
     }
 
     const validPassword = await bcrypt.compare(req.body.password, checkedUser.password)

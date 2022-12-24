@@ -28,6 +28,7 @@ const Login = (props) => {
         fetch('http://localhost:8001/auth/login', requestOption)
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             setUserLogin(data)
             if (data.token) {
             setUserIsValid(true)
@@ -38,8 +39,12 @@ const Login = (props) => {
               }, 1500)
              
             props.isLogged()
+            } else if (data.status == 402) {
+                setIsLoading(false)
+                navigate('/')
             } else {
-            setHasError(data.message)
+                setIsLoading(false)
+                setHasError(data.message)
             }
         })
         .catch((err => {
