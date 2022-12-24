@@ -39,7 +39,7 @@ const ListOfPokemon = (props) => {
         <div id="MainPage">
             <div className="Title">
                 <div className="UserLogo"  onClick={logout}>
-                    {props.isLogged && <img className="UserImg" src="\Materials\user.jpeg" alt="" />}
+                    {localStorage.getItem('token') && <img className="UserImg" src="\Materials\user.jpeg" alt="" />}
                 </div>
                 <div className="Logo">
                     <img className="Pokeball" src="Materials/Pokeball.png" alt=""/>
@@ -61,7 +61,7 @@ const ListOfPokemon = (props) => {
                 onChange={(e)=>setSearchText(e.target.value)}/>
             </div>
                 <div className="PokemonGrid">
-                {props.isLogged && (<Link to={`/new-pokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
+                {localStorage.getItem('token') && (<Link to={`/new-pokemon`} style={{ textDecoration: 'none' }} className="LinkNew">
                     <div className="NewPokemonButton">
                         <div>
                             <img className="NewPokemonImg" src="\Materials\NewPokemonLogo.jpg" alt="" />

@@ -28,7 +28,7 @@ const SimplePokemon = (props) => {
         <Link to={`/${props.pokemon.id}`} style={{ textDecoration: 'none' }}>
             <div className={`PokemonsCards ${props.pokemon.type[0].toLowerCase()}`}>
                 <div className="DeleteButton" onClick={() => deletePokemon(props.pokemon.id)}>
-                    {props.isLogged && <img className="DeleteImg" src="\Materials\Eliminar.png" alt="" />}
+                    {localStorage.getItem('token') && <img className="DeleteImg" src="\Materials\Eliminar.png" alt="" />}
                 </div>
                 <div  className="PokemonId">
                     #{String(props.pokemon.id).padStart(3, '0')}
