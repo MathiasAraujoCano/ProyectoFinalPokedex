@@ -149,7 +149,7 @@ const NewPokemon = (props) => {
             {isNew ? <div className={Classes.LoadingContainer}>
                 <img className={Classes.LoadingImg} src="\Materials\SquirtleGif.gif" alt="" />
                 <p className={Classes.Loadingsuccesful}>creado con exito!</p>
-            </div> : (
+            </div> : ( !localStorage.getItem('token') ? <div>hola</div> :
             <div className={Classes.MainContainer}>
                 <Form onSubmit={submitHandler}>
                         <div className={Classes.Background}></div>

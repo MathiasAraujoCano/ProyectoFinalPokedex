@@ -75,11 +75,11 @@ useEffect(()=>{
           element={
             <Login isLogged={loggedHandler} />
           }/>
-          {localStorage.getItem('token') && <Route path="/new-pokemon"
+          <Route path="/new-pokemon"
           element={
             <NewPokemon
             setReload={setReload}/>
-          }/>}
+          }/>
           <Route path="/register"
           element={
             <Register/>
