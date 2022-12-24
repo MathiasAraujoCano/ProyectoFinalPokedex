@@ -42,12 +42,16 @@ const NewPokemon = (props) => {
         .then(data => {
           console.log(data)
           setNewInsertPokemon(data)
+          setTimeout(() => {
+            setIsNew(true)
+            navigate("/home")
+          }, 2000)
           setIsNew(true)
           props.setReload(new Date().getTime())
-          navigate("/home")
         })
         .catch((err) => {
           console.log('Error en petición Fetch del new Pokemon')
+          setIsNew(false)
         })
       }
 
@@ -142,7 +146,10 @@ const NewPokemon = (props) => {
 
     return(
           <React.Fragment>
-            {isNew ? <div>POKÉMON ingresado con éxito</div> : (
+            {isNew ? <div className={Classes.LoadingContainer}>
+                <img className={Classes.LoadingImg} src="\Materials\SquirtleGif.gif" alt="" />
+                <p className={Classes.Loadingsuccesful}>creado con exito!</p>
+            </div> : (
             <div className={Classes.MainContainer}>
                 <Form onSubmit={submitHandler}>
                         <div className={Classes.Background}></div>
