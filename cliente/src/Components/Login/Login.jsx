@@ -18,7 +18,7 @@ const Login = (props) => {
     const [hasError, setHasError] = useState()
     const navigate = useNavigate();
 
-            const getUser = (email, password) => {
+    const getUser = (email, password) => {
         setIsLoading(true)
         const requestOption = {
             method: 'POST',
@@ -31,9 +31,10 @@ const Login = (props) => {
             setUserLogin(data)
             if (data.token) {
             setUserIsValid(true)
+            localStorage.setItem('token', data.token)
             setTimeout(() => {
                 setIsLoading(false);
-                navigate("/home")     // cual es la idea aca???
+                navigate("/home")     
               }, 1500)
              
             props.isLogged()

@@ -34,7 +34,7 @@ const NewPokemon = (props) => {
     const insertPokemon = (idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image) => {
         const requestPokemon = {
           method: 'POST',
-          headers: {'Content-Type':'application/json'},
+          headers: {'Content-Type':'application/json',  'Authorization': localStorage.getItem('token')},
           body: JSON.stringify({idPokemon, name, type, weight, height, moves, description, hp, atk, def, spa, spd, speed, image})
         }
         fetch('http://localhost:8001/pkmn', requestPokemon)

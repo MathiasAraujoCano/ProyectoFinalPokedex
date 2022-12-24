@@ -30,6 +30,7 @@ body{
   grid-area: 1/1/2/2;
   margin-left: 188%;
   margin-top: 2%;
+  z-index: 1000;
 }
 .UserImg{
   height: 28px;
