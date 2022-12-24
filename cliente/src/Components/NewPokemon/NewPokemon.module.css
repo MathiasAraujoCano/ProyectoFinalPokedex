@@ -1,20 +1,37 @@
-.LoadingContainer{
+.ErrorContainer{
     height: 100vh;
     width: 103vw;
     margin-left: -3%;
     background-image: url("/public/Materials/LoadingPageFondo.jpeg");
 }
-.LoadingImg{
-    width: 90%;
-    margin-left: 3.5%;
+.ErrorImg{
+    width: 61%;
+    margin-left: 16.5%;
     margin-top: 50%;
 }
-.Loadingsuccesful{
-    font-family: 'PoppinsRegular';
-    font-size: 19px;
-    margin-left: 33%;
-    margin-top: 5%;
+.ErrorMsg{
+    font-family: 'PoppinsBold';
+    color: white;
+    font-size: 30px;
+    margin-left: 5%;
+    margin-top: -113%;
+
 }
+.LinkLogin{
+    margin-left: 30%;
+    margin-top: 121%;
+    color: black;
+    font-family: 'PoppinsBold';
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    margin-right: 27%;
+    font-size: 22px;
+    background-color: rgb(4, 226, 255);
+}
+
+
+
 .MainContainer{
     margin-left: -3%;
     background-image: url("/public/Materials/NewPokemonFondo.jpeg");

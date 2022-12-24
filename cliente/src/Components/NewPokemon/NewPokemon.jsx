@@ -146,10 +146,19 @@ const NewPokemon = (props) => {
 
     return(
           <React.Fragment>
-            {isNew ? <div className={Classes.LoadingContainer}>
-                <img className={Classes.LoadingImg} src="\Materials\SquirtleGif.gif" alt="" />
-                <p className={Classes.Loadingsuccesful}>creado con exito!</p>
-            </div> : ( !localStorage.getItem('token') ? <div>hola</div> :
+            {isNew ? 
+                <div className={Classes.LoadingContainer}>
+                    <img className={Classes.LoadingImg} src="\Materials\SquirtleGif.gif" alt="" />
+                    <p className={Classes.Loadingsuccesful}>creado con exito!</p>
+                </div> : 
+            ( !localStorage.getItem('token') ? 
+                <div className={Classes.ErrorContainer}>
+                    <img className={Classes.ErrorImg} src="\Materials\ErrorNewPokemon.gif" alt="" />
+                    <p className={Classes.ErrorMsg}>Por Favor Inicia Sesión</p>
+                    <Link to={`/`} style={{ textDecoration: 'none' }}>                             
+                       <p className={Classes.LinkLogin}>¡Inicia Sesión!</p>                     
+                    </Link>
+                </div> :
             <div className={Classes.MainContainer}>
                 <Form onSubmit={submitHandler}>
                         <div className={Classes.Background}></div>
