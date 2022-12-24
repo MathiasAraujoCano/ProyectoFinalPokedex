@@ -126,6 +126,7 @@ const Register = (props) => {
                                 placeholder="Ingresa tu Nombre"
                                 onChange={nameHandler}
                                 value={name}
+                                required
                             />
                         </Form.Group>                   
                         <Form.Group className={Classes.formEmail} controlId="formEmailRegister">
@@ -137,6 +138,7 @@ const Register = (props) => {
                                 onChange={takeEmailHandler}
                                 onBlur={emailHandler}
                                 value={email}
+                                required
                             />
                         </Form.Group>
                         <Form.Group className={Classes.formPassword} controlId="formPasswordRegister">
@@ -147,6 +149,7 @@ const Register = (props) => {
                                 placeholder="Ingresa tu Contraseña" 
                                 onChange={passwordHandler}
                                 value={password}
+                                required
                             />
                         </Form.Group>
                     </div>
