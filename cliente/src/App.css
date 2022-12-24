@@ -32,13 +32,8 @@ body{
   margin-top: 2%;
   z-index: 1000;
 }
-.UserImg{
-  height: 28px;
-  width: auto;
-  margin-top: -112%;
-}
 .LogOutButton{
-  margin-left: -218%;
+  margin-left: -170%;
   margin-top: 11%;
   font-family: PoppinsRegular;
 }
